@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    
+
+
+<template id="report_pos_cash_doc">
+    <t t-call="pos_maxirest.external_layout">
+    
+    <div class="page"  style="min-width: 240px;max-width:250px;font-size: 8px !important;">
+        <div class="pos-session-ticket">
+            <div class='cashier'>
+                
+                <t t-if='receipt.company_id.phone'>
+                    <div>Tel:<t t-esc='receipt.company_id.phone' /></div>
+                </t>
+                <t t-if='receipt.company_id.vat'>
+                    <div>VAT:<t t-esc='receipt.company_id.vat' /></div>
+                </t>
+                <t t-if='receipt.company_id.email'>
+                    <div><t t-esc='receipt.company_id.email' /></div>
+                </t>
+                <t t-if='receipt.company_id.website'>
+                    <div><t t-esc='receipt.company_id.website' /></div>
+                </t>
+                <div class='cashier'>
+                     <div>--------------------------------</div>
+                </div>
+                <br />
+                <div class='pos_report_title' >
+                CASH BOX OUTCOME
+                </div>
+                <br />
+                <div class='pos_report_title' >
+                USER:<t t-esc='receipt.create_uid.name' />
+                </div>
+                <br />
+                <div class='pos_report_title' >
+                DATE:<t t-esc='receipt.create_date' />
+                </div>
+                <br />
+                <div class='pos_report_title' >
+                CONCEPT:<t t-esc='receipt.name' />
+                </div>
+                <br />
+                <div class='pos_report_title' >
+                AMOUNT:<t t-esc='receipt.amount' />
+                </div>
+                <br />
+                
+                
+                <t t-if='receipt.create_uid'>
+                    <div class='cashier'>
+                        <div>--------------------------------</div>
+                    </div>
+                </t>
+            </div>
+   
+
+    
+            
+        </div>
+    
+    
+    </div>
+    </t>
+    </template>
+
+
+
+
+<template id="report_pos_cash">
+    <t t-call="web.html_container">
+        <t t-foreach="docs" t-as="receipt">
+            <t t-call="pos_maxirest.report_pos_cash_doc" />
+        </t>
+    </t>
+</template>
+
+
+
+</odoo>
