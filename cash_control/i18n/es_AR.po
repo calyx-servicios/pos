@@ -4,10 +4,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 13.0-20200808\n"
+"Project-Id-Version: Odoo Server 13.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-08-03 15:37+0000\n"
-"PO-Revision-Date: 2021-08-03 15:37+0000\n"
+"POT-Creation-Date: 2022-04-23 20:15+0000\n"
+"PO-Revision-Date: 2022-04-23 20:15+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -16,16 +16,14 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: cash_control
-#: code:addons/cash_control/models/cash_control_config.py:0
-#: code:addons/cash_control/models/cash_control_config.py:0
-#, python-format
-msgid "%s (copy)"
-msgstr "%s (copia)"
-
-#. module: cash_control
 #: model:ir.actions.report,print_report_name:cash_control.pos_invoice_report
 msgid "'Invoice - %s' % (object.name)"
 msgstr "'Factura - %s' % (object.name)"
+
+#. module: cash_control
+#: model_terms:ir.ui.view,arch_db:cash_control.add_credit_note
+msgid "+ NC"
+msgstr ""
 
 #. module: cash_control
 #: model_terms:ir.ui.view,arch_db:cash_control.cash_control_config_form
@@ -121,6 +119,7 @@ msgid "Action Needed"
 msgstr ""
 
 #. module: cash_control
+#: model:ir.model.fields,field_description:cash_control.field_cash_control_config__active
 #: model:ir.model.fields.selection,name:cash_control.selection__cash_control_config__state__active
 msgid "Active"
 msgstr "Activo"
@@ -132,6 +131,21 @@ msgid "Actual in Cash"
 msgstr "Efectivo Actual"
 
 #. module: cash_control
+#: model_terms:ir.ui.view,arch_db:cash_control.add_credit_note_form
+msgid "Add credit Note"
+msgstr ""
+
+#. module: cash_control
+#: model_terms:ir.ui.view,arch_db:cash_control.add_credit_note
+msgid "Add credit note in payment."
+msgstr ""
+
+#. module: cash_control
+#: model:res.groups,name:cash_control.administacion
+msgid "Administrator"
+msgstr ""
+
+#. module: cash_control
 #: model:ir.model.fields,field_description:cash_control.field_cash_control_transfer_wizard__amount
 msgid "Amount"
 msgstr "Monto"
@@ -140,6 +154,11 @@ msgstr "Monto"
 #: model:ir.model.fields,field_description:cash_control.field_cash_control_config__amount_authorized_diff
 msgid "Amount Authorized Difference"
 msgstr "Diferencia de Monto Autorizada"
+
+#. module: cash_control
+#: model:ir.model.fields,field_description:cash_control.field_cash_control_session__user_ids
+msgid "Assignees"
+msgstr ""
 
 #. module: cash_control
 #: model:ir.model.fields,field_description:cash_control.field_cash_control_session__message_attachment_count
@@ -157,7 +176,7 @@ msgstr "Extracto bancario"
 #. module: cash_control
 #: model:ir.model,name:cash_control.model_account_bank_statement_cashbox
 msgid "Bank Statement Cashbox"
-msgstr "Arqueo de Caja"
+msgstr "Caja Bancaria"
 
 #. module: cash_control
 #: model:ir.model,name:cash_control.model_account_bank_statement_line
@@ -182,8 +201,10 @@ msgid "Cash Box Out"
 msgstr "Salida de caja"
 
 #. module: cash_control
+#: model:ir.model.fields,field_description:cash_control.field_account_move__config_id
 #: model:ir.model.fields,field_description:cash_control.field_account_payment__config_id
 #: model:ir.model.fields,field_description:cash_control.field_sale_order__config_id
+#: model:ir.module.category,name:cash_control.cash_control
 #: model:ir.ui.menu,name:cash_control.cash_control_main_menu
 msgid "Cash Control"
 msgstr "Control de Caja"
@@ -220,6 +241,11 @@ msgid "Cash Control Session"
 msgstr "Sesión"
 
 #. module: cash_control
+#: model:ir.model,name:cash_control.model_cash_control_session_payment_summary
+msgid "Cash Control Session summary"
+msgstr ""
+
+#. module: cash_control
 #: model:ir.model,name:cash_control.model_cash_control_transfer_wizard
 msgid "Cash Control Transfer Wizard"
 msgstr "Transferencia de Efectivo"
@@ -240,6 +266,7 @@ msgid "Close Session"
 msgstr "Cerrar Sesión"
 
 #. module: cash_control
+#: model:ir.model.fields.selection,name:cash_control.selection__cash_control_config__session_state_info__closed
 #: model:ir.model.fields.selection,name:cash_control.selection__cash_control_session__state__closed
 msgid "Closed"
 msgstr "Cerrado"
@@ -265,11 +292,18 @@ msgid "Configuration"
 msgstr "Configuración"
 
 #. module: cash_control
+#: model:ir.model,name:cash_control.model_res_partner
+msgid "Contact"
+msgstr "Contacto"
+
+#. module: cash_control
 #: model:ir.model.fields,field_description:cash_control.field_cash_control_config__create_uid
 #: model:ir.model.fields,field_description:cash_control.field_cash_control_details_wizard__create_uid
 #: model:ir.model.fields,field_description:cash_control.field_cash_control_session__create_uid
+#: model:ir.model.fields,field_description:cash_control.field_cash_control_session_payment_summary__create_uid
 #: model:ir.model.fields,field_description:cash_control.field_cash_control_transfer_cash__create_uid
 #: model:ir.model.fields,field_description:cash_control.field_cash_control_transfer_wizard__create_uid
+#: model:ir.model.fields,field_description:cash_control.field_sale_order_add_credit_note__create_uid
 msgid "Created by"
 msgstr "Creado por"
 
@@ -277,8 +311,10 @@ msgstr "Creado por"
 #: model:ir.model.fields,field_description:cash_control.field_cash_control_config__create_date
 #: model:ir.model.fields,field_description:cash_control.field_cash_control_details_wizard__create_date
 #: model:ir.model.fields,field_description:cash_control.field_cash_control_session__create_date
+#: model:ir.model.fields,field_description:cash_control.field_cash_control_session_payment_summary__create_date
 #: model:ir.model.fields,field_description:cash_control.field_cash_control_transfer_cash__create_date
 #: model:ir.model.fields,field_description:cash_control.field_cash_control_transfer_wizard__create_date
+#: model:ir.model.fields,field_description:cash_control.field_sale_order_add_credit_note__create_date
 msgid "Created on"
 msgstr "Creado el"
 
@@ -343,13 +379,16 @@ msgstr "Desc:"
 #: model:ir.model.fields,field_description:cash_control.field_cash_control_config__display_name
 #: model:ir.model.fields,field_description:cash_control.field_cash_control_details_wizard__display_name
 #: model:ir.model.fields,field_description:cash_control.field_cash_control_session__display_name
+#: model:ir.model.fields,field_description:cash_control.field_cash_control_session_payment_summary__display_name
 #: model:ir.model.fields,field_description:cash_control.field_cash_control_transfer_cash__display_name
 #: model:ir.model.fields,field_description:cash_control.field_cash_control_transfer_wizard__display_name
 #: model:ir.model.fields,field_description:cash_control.field_report_cash_control_report_saledetails__display_name
+#: model:ir.model.fields,field_description:cash_control.field_sale_order_add_credit_note__display_name
 msgid "Display Name"
 msgstr "Nombre"
 
 #. module: cash_control
+#: model:ir.model.fields.selection,name:cash_control.selection__cash_control_config__session_state_info__draft
 #: model:ir.model.fields.selection,name:cash_control.selection__cash_control_config__state__draft
 #: model:ir.model.fields.selection,name:cash_control.selection__cash_control_session__state__draft
 msgid "Draft"
@@ -373,7 +412,20 @@ msgstr "Saldo de Cierre"
 
 #. module: cash_control
 #: model:ir.model.fields,field_description:cash_control.field_cash_control_config__is_acum_cash_control
+#: model:ir.model.fields,field_description:cash_control.field_cash_control_transfer_wizard__is_acum_cash_control
 msgid "Es Caja Acumuladora"
+msgstr ""
+
+#. module: cash_control
+#: model:ir.model.fields,field_description:cash_control.field_cash_control_config__is_main_cash_control
+msgid "Es Caja Principal"
+msgstr ""
+
+#. module: cash_control
+#: model_terms:ir.ui.view,arch_db:cash_control.cash_control_config_form
+msgid ""
+"Existen transferencias pendientes para esta caja.\n"
+"                        <br/>"
 msgstr ""
 
 #. module: cash_control
@@ -395,9 +447,11 @@ msgstr ""
 #: model:ir.model.fields,field_description:cash_control.field_cash_control_config__id
 #: model:ir.model.fields,field_description:cash_control.field_cash_control_details_wizard__id
 #: model:ir.model.fields,field_description:cash_control.field_cash_control_session__id
+#: model:ir.model.fields,field_description:cash_control.field_cash_control_session_payment_summary__id
 #: model:ir.model.fields,field_description:cash_control.field_cash_control_transfer_cash__id
 #: model:ir.model.fields,field_description:cash_control.field_cash_control_transfer_wizard__id
 #: model:ir.model.fields,field_description:cash_control.field_report_cash_control_report_saledetails__id
+#: model:ir.model.fields,field_description:cash_control.field_sale_order_add_credit_note__id
 msgid "ID"
 msgstr ""
 
@@ -429,8 +483,13 @@ msgid "Is Follower"
 msgstr ""
 
 #. module: cash_control
-#: model:ir.model,name:cash_control.model_account_journal
-msgid "Journal"
+#: model:ir.model,name:cash_control.model_account_move
+msgid "Journal Entries"
+msgstr "Asientos Contables"
+
+#. module: cash_control
+#: model:ir.model.fields,field_description:cash_control.field_cash_control_session_payment_summary__journal_id
+msgid "Journal_id"
 msgstr "Diario"
 
 #. module: cash_control
@@ -442,9 +501,11 @@ msgstr "Diarios"
 #: model:ir.model.fields,field_description:cash_control.field_cash_control_config____last_update
 #: model:ir.model.fields,field_description:cash_control.field_cash_control_details_wizard____last_update
 #: model:ir.model.fields,field_description:cash_control.field_cash_control_session____last_update
+#: model:ir.model.fields,field_description:cash_control.field_cash_control_session_payment_summary____last_update
 #: model:ir.model.fields,field_description:cash_control.field_cash_control_transfer_cash____last_update
 #: model:ir.model.fields,field_description:cash_control.field_cash_control_transfer_wizard____last_update
 #: model:ir.model.fields,field_description:cash_control.field_report_cash_control_report_saledetails____last_update
+#: model:ir.model.fields,field_description:cash_control.field_sale_order_add_credit_note____last_update
 msgid "Last Modified on"
 msgstr "Última modificación el"
 
@@ -467,8 +528,10 @@ msgstr "Fecha de cierre de la última sesión"
 #: model:ir.model.fields,field_description:cash_control.field_cash_control_config__write_uid
 #: model:ir.model.fields,field_description:cash_control.field_cash_control_details_wizard__write_uid
 #: model:ir.model.fields,field_description:cash_control.field_cash_control_session__write_uid
+#: model:ir.model.fields,field_description:cash_control.field_cash_control_session_payment_summary__write_uid
 #: model:ir.model.fields,field_description:cash_control.field_cash_control_transfer_cash__write_uid
 #: model:ir.model.fields,field_description:cash_control.field_cash_control_transfer_wizard__write_uid
+#: model:ir.model.fields,field_description:cash_control.field_sale_order_add_credit_note__write_uid
 msgid "Last Updated by"
 msgstr "Última actualización por"
 
@@ -476,19 +539,26 @@ msgstr "Última actualización por"
 #: model:ir.model.fields,field_description:cash_control.field_cash_control_config__write_date
 #: model:ir.model.fields,field_description:cash_control.field_cash_control_details_wizard__write_date
 #: model:ir.model.fields,field_description:cash_control.field_cash_control_session__write_date
+#: model:ir.model.fields,field_description:cash_control.field_cash_control_session_payment_summary__write_date
 #: model:ir.model.fields,field_description:cash_control.field_cash_control_transfer_cash__write_date
 #: model:ir.model.fields,field_description:cash_control.field_cash_control_transfer_wizard__write_date
+#: model:ir.model.fields,field_description:cash_control.field_sale_order_add_credit_note__write_date
 msgid "Last Updated on"
 msgstr "Última actualización el"
 
 #. module: cash_control
-#: model_terms:ir.ui.view,arch_db:cash_control.view_account_journal_form
-msgid "Local"
+#: model:ir.model.fields,field_description:cash_control.field_cash_control_config__last_balance_end_real
+msgid "Last balance"
 msgstr ""
 
 #. module: cash_control
 #: model:ir.model.fields,field_description:cash_control.field_cash_control_session__message_main_attachment_id
 msgid "Main Attachment"
+msgstr ""
+
+#. module: cash_control
+#: model:res.groups,name:cash_control.caja
+msgid "Manager"
 msgstr ""
 
 #. module: cash_control
@@ -511,12 +581,6 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:cash_control.report_saledetails
 msgid "Name"
 msgstr "Nombre"
-
-#. module: cash_control
-#: code:addons/cash_control/models/report_sale_details.py:0
-#, python-format
-msgid "No Taxes"
-msgstr "Sin Impuestos"
 
 #. module: cash_control
 #: model_terms:ir.ui.view,arch_db:cash_control.cash_control_config_form
@@ -549,22 +613,15 @@ msgid "Number of unread messages"
 msgstr ""
 
 #. module: cash_control
-#: code:addons/cash_control/models/cash_control_config.py:0
-#, python-format
-msgid "Only users with \"%s\" group can write a cash control config"
-msgstr ""
-"Solo los usuarios con el grupo \"%s\" pueden modificar una configuración de "
-"caja"
-
-#. module: cash_control
-#: model_terms:ir.ui.view,arch_db:cash_control.cash_control_config_form
-msgid "Open Session"
-msgstr "Abrir Sesión"
-
-#. module: cash_control
+#: model:ir.model.fields.selection,name:cash_control.selection__cash_control_config__session_state_info__opened
 #: model:ir.model.fields.selection,name:cash_control.selection__cash_control_session__state__opened
 msgid "Opened"
 msgstr "Abierto"
+
+#. module: cash_control
+#: model:ir.model.fields,field_description:cash_control.field_cash_control_transfer_wizard__operation
+msgid "Operación"
+msgstr ""
 
 #. module: cash_control
 #: model:ir.model.fields,field_description:cash_control.field_cash_control_session__sale_order_ids
@@ -586,6 +643,11 @@ msgid "Origin statement line"
 msgstr "Linea de Extracto Origen"
 
 #. module: cash_control
+#: model:ir.model.fields,field_description:cash_control.field_sale_order_add_credit_note__partner_id
+msgid "Partner"
+msgstr ""
+
+#. module: cash_control
 #: model:ir.model.fields,field_description:cash_control.field_cash_control_config__payment_journal_ids
 #: model:ir.model.fields,field_description:cash_control.field_cash_control_session__payment_journal_ids
 msgid "Payment Method"
@@ -605,6 +667,8 @@ msgstr "Extracto de Pagos"
 #. module: cash_control
 #: model:ir.model,name:cash_control.model_account_payment
 #: model:ir.model.fields,field_description:cash_control.field_account_payment__statement_ids
+#: model:ir.model.fields,field_description:cash_control.field_cash_control_config__payment_summary_ids
+#: model:ir.model.fields,field_description:cash_control.field_cash_control_session__payment_summary_ids
 #: model_terms:ir.ui.view,arch_db:cash_control.cash_control_session_form
 #: model_terms:ir.ui.view,arch_db:cash_control.report_saledetails
 msgid "Payments"
@@ -673,7 +737,6 @@ msgstr ""
 
 #. module: cash_control
 #: model:ir.model.fields,field_description:cash_control.field_cash_control_config__user_ids
-#: model:ir.model.fields,field_description:cash_control.field_cash_control_session__user_ids
 msgid "Responsibles"
 msgstr "Responsables"
 
@@ -686,6 +749,16 @@ msgstr ""
 #: model:ir.model.fields,field_description:cash_control.field_cash_control_config__sale_journal_ids
 msgid "Sale Journals"
 msgstr "Diarios de Ventas"
+
+#. module: cash_control
+#: model:ir.model.fields,field_description:cash_control.field_sale_order_add_credit_note__order_id
+msgid "Sale order"
+msgstr ""
+
+#. module: cash_control
+#: model:ir.model,name:cash_control.model_sale_order_add_credit_note
+msgid "Sale order add credit note"
+msgstr ""
 
 #. module: cash_control
 #: model:ir.actions.act_window,name:cash_control.action_report_cash_control_details
@@ -701,6 +774,7 @@ msgid "Sales Order"
 msgstr "Pedido de venta"
 
 #. module: cash_control
+#: model:ir.model.fields,field_description:cash_control.field_account_move__cash_control_session_id
 #: model:ir.model.fields,field_description:cash_control.field_account_payment__cash_control_session_id
 #: model:ir.model.fields,field_description:cash_control.field_sale_order__cash_control_session_id
 #: model:ir.ui.menu,name:cash_control.cash_control_session_menu
@@ -761,6 +835,7 @@ msgstr "Efectivo Inicial"
 
 #. module: cash_control
 #: model:ir.model.fields,field_description:cash_control.field_cash_control_config__session_state
+#: model:ir.model.fields,field_description:cash_control.field_cash_control_config__session_state_info
 #: model:ir.model.fields,field_description:cash_control.field_cash_control_config__state
 #: model:ir.model.fields,field_description:cash_control.field_cash_control_session__state
 #: model:ir.model.fields,field_description:cash_control.field_cash_control_transfer_cash__state
@@ -768,20 +843,15 @@ msgid "State"
 msgstr "Estado"
 
 #. module: cash_control
+#: model:ir.model.fields,field_description:cash_control.field_cash_control_config__journal_id
+msgid "Statement Journal"
+msgstr ""
+
+#. module: cash_control
 #: model_terms:ir.ui.view,arch_db:cash_control.cash_control_config_form
 #: model_terms:ir.ui.view,arch_db:cash_control.cash_control_session_form
 msgid "Statements"
 msgstr "Extractos"
-
-#. module: cash_control
-#: model:ir.model.fields,field_description:cash_control.field_cash_control_config__store_id
-msgid "Store"
-msgstr "Sucursal"
-
-#. module: cash_control
-#: model:ir.ui.menu,name:cash_control.menu_action_res_store_ba
-msgid "Stores"
-msgstr "Locales"
 
 #. module: cash_control
 #: model:ir.model.fields,help:cash_control.field_cash_control_config__statement_balance_end
@@ -811,67 +881,10 @@ msgid "Taxes"
 msgstr "Impuesto"
 
 #. module: cash_control
-#: code:addons/cash_control/models/cash_control_session.py:0
-#, python-format
-msgid "The journal type for your payment method should be bank or cash."
-msgstr "El tipo de diario para su pago debe ser de banco o efectivo"
-
-#. module: cash_control
-#: code:addons/cash_control/models/payment.py:0
-#, python-format
-msgid "The payment session was closed. Please create another payment"
-msgstr "La sesión de caja fue cerrada. Por favor cree otro pago"
-
-#. module: cash_control
-#: code:addons/cash_control/models/cash_control_session.py:0
-#, python-format
-msgid "The user %s already has an opened session"
-msgstr "El usuario %s ya tiene una sesión abierta"
-
-#. module: cash_control
 #: model:ir.model.fields,field_description:cash_control.field_cash_control_config__statement_balance_end
 #: model:ir.model.fields,field_description:cash_control.field_cash_control_session__statement_balance_end
 msgid "Theoretical Closing Balance"
 msgstr "Saldo de cierre teórico"
-
-#. module: cash_control
-#: code:addons/cash_control/wizards/pos_box.py:0
-#: code:addons/cash_control/wizards/pos_box.py:0
-#, python-format
-msgid "There is no cash register for this PoS Session"
-msgstr "No hay caja registradora para esta sesión de TPV"
-
-#. module: cash_control
-#: code:addons/cash_control/models/payment.py:0
-#, python-format
-msgid ""
-"There is no receivable account defined to make payment for the partner: "
-"\"%s\" (id:%d)."
-msgstr ""
-"No hay una cuenta por cobrar definida para realizar el pago del cliente: "
-"\"%s\" (id:%d)."
-
-#. module: cash_control
-#: code:addons/cash_control/models/payment.py:0
-#, python-format
-msgid "There is no receivable account defined to make payment."
-msgstr "No hay una cuenta por cobrar definida para realizar el pago."
-
-#. module: cash_control
-#: code:addons/cash_control/models/payment.py:0
-#: code:addons/cash_control/models/sale.py:0
-#, python-format
-msgid ""
-"There is not open cash session for de the current user. Please open a cash "
-"session"
-msgstr ""
-"No hay una caja abierta para el usuario actual. Por favor abra una sesión."
-
-#. module: cash_control
-#: code:addons/cash_control/models/payment.py:0
-#, python-format
-msgid "There is not session statement for journal %s."
-msgstr "No hay un extracto de sesión para el diario %s"
 
 #. module: cash_control
 #: model:ir.model.fields,help:cash_control.field_cash_control_config__amount_authorized_diff
@@ -939,6 +952,31 @@ msgid "Transfer Cash"
 msgstr "Transferir Efectivo"
 
 #. module: cash_control
+#: model:ir.model.fields,field_description:cash_control.field_cash_control_config__transfer_pendientes
+msgid "Transfer Pendientes"
+msgstr ""
+
+#. module: cash_control
+#: model:ir.model.fields.selection,name:cash_control.selection__cash_control_transfer_wizard__operation__transfer_to_bank
+msgid "Transferencia a Banco"
+msgstr ""
+
+#. module: cash_control
+#: model:ir.model.fields.selection,name:cash_control.selection__cash_control_transfer_wizard__operation__transfer_to_cash
+msgid "Transferencia a Caja"
+msgstr ""
+
+#. module: cash_control
+#: model:ir.ui.menu,name:cash_control.menu_action_account_payments_transfer_to_bank
+msgid "Transferir Banco"
+msgstr ""
+
+#. module: cash_control
+#: model:ir.model.fields,field_description:cash_control.field_cash_control_transfer_wizard__bank_journal_id
+msgid "Transferir a"
+msgstr ""
+
+#. module: cash_control
 #: model:ir.model.fields,field_description:cash_control.field_cash_control_session__message_unread
 msgid "Unread Messages"
 msgstr ""
@@ -949,9 +987,8 @@ msgid "Unread Messages Counter"
 msgstr ""
 
 #. module: cash_control
-#: model:ir.model.fields,field_description:cash_control.field_account_bank_statement_import_journal_creation__multi_store
-#: model:ir.model.fields,field_description:cash_control.field_account_journal__multi_store
-msgid "Usar en multiples locales"
+#: model:res.groups,name:cash_control.salesman
+msgid "User"
 msgstr ""
 
 #. module: cash_control
@@ -970,33 +1007,15 @@ msgid "Website communication history"
 msgstr ""
 
 #. module: cash_control
-#: code:addons/cash_control/models/cash_control_config.py:0
-#, python-format
-msgid "You are not the responsible of the cash control %s (%s)"
-msgstr "Usted no es el responsable de la caja %s (%s)"
-
-#. module: cash_control
-#: code:addons/cash_control/models/payment.py:0
-#, python-format
-msgid "You have to open at least one cashbox."
-msgstr "Debe abrir al menos una caja"
-
-#. module: cash_control
-#: code:addons/cash_control/models/cash_control_session.py:0
-#, python-format
-msgid ""
-"Your ending balance is too different from the theoretical cash closing "
-"(%.2f), the maximum allowed is: %.2f. You can contact your manager to force "
-"it."
-msgstr ""
-"Su saldo final es demasiado diferente del saldo teórico de cierre (%.2f), el"
-" máximo permitido es: %.2f. Puede contactar con su responsable para "
-"cerrarlo."
-
-#. module: cash_control
+#: model:ir.model.fields,field_description:cash_control.field_cash_control_session_payment_summary__amount
 #: model:ir.model.fields,field_description:cash_control.field_cash_control_transfer_cash__amount
 msgid "amount"
 msgstr "Monto"
+
+#. module: cash_control
+#: model_terms:ir.ui.view,arch_db:cash_control.add_credit_note_form
+msgid "description"
+msgstr ""
 
 #. module: cash_control
 #: model:ir.model.fields.selection,name:cash_control.selection__cash_control_transfer_cash__state__draft
@@ -1004,9 +1023,34 @@ msgid "draft"
 msgstr "Borrador"
 
 #. module: cash_control
+#: model_terms:ir.ui.view,arch_db:cash_control.view_order_form
+msgid "nota de credito"
+msgstr ""
+
+#. module: cash_control
+#: model:ir.model.fields,field_description:cash_control.field_cash_control_session__previous_session_id
+msgid "previous session"
+msgstr ""
+
+#. module: cash_control
 #: model:ir.model.fields.selection,name:cash_control.selection__cash_control_transfer_cash__state__receipt
 msgid "receipt"
 msgstr "Aceptado"
+
+#. module: cash_control
+#: model:ir.model.fields,field_description:cash_control.field_sale_order_add_credit_note__move_line_id
+msgid "refund"
+msgstr ""
+
+#. module: cash_control
+#: model:ir.model.fields,field_description:cash_control.field_sale_order__refund_move_lines_ids
+msgid "refund lines"
+msgstr ""
+
+#. module: cash_control
+#: model:ir.model.fields,field_description:cash_control.field_cash_control_session_payment_summary__session_id
+msgid "session_id"
+msgstr ""
 
 #. module: cash_control
 #: model:ir.model.fields.selection,name:cash_control.selection__cash_control_transfer_cash__state__transfer
