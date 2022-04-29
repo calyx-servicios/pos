@@ -6,6 +6,7 @@
             <field name="inherit_id" ref="cash_control.cash_control_config_form"/>
             <field name="arch" type="xml">
                 <xpath expr="//field[@name='code']" position='before'>
+                <field name="team_id"/>
                     <field name='accumulator_cash_id'/>
                 </xpath>
                 <xpath expr="//button[@name='%(cash_control.action_cash_control_transfer_wizard)d']" position="attributes">
