@@ -21,6 +21,11 @@ msgid "Accumulator Cashbox"
 msgstr "Caja Acumuladora"
 
 #. module: cash_control_extension
+#: model:ir.model.fields,field_description:cash_control_extension.field_cash_control_session__user_ids
+msgid "Assignees"
+msgstr "Asignados"
+
+#. module: cash_control_extension
 #: model:ir.model,name:cash_control_extension.model_cash_control_config
 msgid "Cash Control Config"
 msgstr "Control de Turnos"
