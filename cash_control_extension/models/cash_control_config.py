@@ -12,3 +12,5 @@ class CashControlConfig(models.Model):
         string="Accumulator Cashbox",
         domain="[('is_acum_cash_control','=',True)]",
     )
+
+    team_id = fields.Many2one(comodel_name="crm.team", string="Sales Team")

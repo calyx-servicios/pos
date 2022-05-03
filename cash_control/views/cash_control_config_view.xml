@@ -79,7 +79,7 @@
                                 <field invisible="1" name="transfer_pendientes"/>
                             </group>
                         </group>
-                        <group class="col-md-12" style="margin-left: 140px;">
+                        <group class="col-md-12" style="margin-left: 140px;" id='cash_detail'>
                             <group class="col-md-7">
                                 <div style="margin:0;padding:0;">
                                     <group style="margin:0;padding:0;">
@@ -111,7 +111,7 @@
                                 </div>
                             </group>
                         </group>
-                        <div attrs="{'invisible' : [('session_state_info', 'in', ['draft','closed'])]}" class="col-md-4" style="height: 30px">
+                        <div attrs="{'invisible' : [('session_state_info', 'in', ['draft','closed'])]}" class="col-md-4" style="height: 30px" id="subtotal">
                             <group class="oe_subtotal_footer">
                                 <field decoration-danger="statement_difference != 0" name="statement_difference" options="{'currency_field': 'currency_id'}" widget="monetary"/>
                             </group>
