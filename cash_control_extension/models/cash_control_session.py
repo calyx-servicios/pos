@@ -24,17 +24,21 @@ class CashControlSession(models.Model):
 
     def _compute_invoice_ids(self):
         for session in self:
-            session.invoice_ids = self.env["account.move"].search([
-                ("cash_control_session_id", "=", session.id),
-                ("journal_id.type", "in", ["sale", "purchase"]),
-            ])
-
+            session.invoice_ids = self.env["account.move"].search(
+                [
+                    ("cash_control_session_id", "=", session.id),
+                    ("journal_id.type", "in", ["sale", "purchase"]),
+                ]
+            )
 
     @api.depends("statement_id")
     def _compute_transfer_ids(self):
         for session in self:
             session.transfer_ids = self.env["account.bank.statement.line"].search(
-                [("statement_id", "=", session.statement_id.id)]
+                [
+                    ("statement_id", "=", session.statement_id.id),
+                    ("transaction_type", "in", ["TRANSFER_OUT", "TRANSFER_IN"]),
+                ]
             )
 
     @api.model
