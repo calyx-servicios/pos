@@ -6,7 +6,7 @@
 		<field name="inherit_id" ref="sale.view_order_form"/>
 		<field name="arch" type="xml">
 			<button name="payment_action_capture" position="before">
-				<button class="oe_highlight" groups="cash_control.caja,cash_control.administacion" id="action_register_payment_btn" name="action_register_sale_payment" string="Register draft Payment" type="object" attrs="{'invisible' : ['|',('amount_residual', '=', 0),('state', 'not in', [('sale')])]}"/>
+				<button class="oe_highlight" groups="ba_base.blancoamor_caja,ba_base.blancoamor_administacion" id="action_register_payment_btn" name="action_register_sale_payment" string="Register draft Payment" type="object" attrs="{'invisible' : ['|',('amount_residual', '=', 0),('state', 'not in', [('sale')])]}"/>
 			</button>
 			<xpath expr="//page[@name='order_lines']" position="after">
 				<page attrs="{'invisible': [('state', 'not in', ['done', 'sale'])]}" name="payment" string="Payments">
