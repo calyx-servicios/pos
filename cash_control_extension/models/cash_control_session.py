@@ -18,7 +18,7 @@ class CashControlSession(models.Model):
     def _compute_transfer_ids(self):
         for session in self:
             session.transfer_ids = self.env["account.bank.statement.line"].search(
-                [("statement_id", "=", session.statement_id.id)]
+                [("statement_id", "=", session.statement_id.id),("transaction_type",'in',['TRANSFER_OUT','TRANSFER_IN'])]
             )
 
     @api.model
