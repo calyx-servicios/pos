@@ -1,0 +1,57 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+
+    <record id="tree_quotation_session_date" model="ir.ui.view">
+        <field name="name">sale.order.quotation.inherit.view.tree</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_quotation_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='create_date']" position="after">
+                <field name="session_date"/>
+            </xpath>
+        </field>
+    </record>
+    
+    <record id="search_session_date" model="ir.ui.view">
+        <field name="name">sale.order.inherit.view.search</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.sale_order_view_search_inherit_quotation"/>
+        <field name="arch" type="xml">
+            <xpath expr="//filter[@name='filter_create_date']" position="before">
+                <filter name="session_date_filter" string="Session Date" date="session_date"/>
+            </xpath>
+            <xpath expr="//filter[@name='order_month']" position="before">
+                <filter name="session_date_month" string="Session Date" context="{'group_by':'session_date'}"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="tree_session_date" model="ir.ui.view">
+        <field name="name">sale.order.inherit.view.tree</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='date_order']" position="after">
+                <field name="session_date"/>
+            </xpath>
+        </field>
+    </record>
+    
+    <record id="search_session_date" model="ir.ui.view">
+        <field name="name">sale.order.inherit.view.search</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.sale_order_view_search_inherit_sale"/>
+        <field name="arch" type="xml">
+            <xpath expr="//filter[@name='order_date']" position="before">
+                <filter name="session_date_filter" string="Session Date" date="session_date"/>
+            </xpath>
+            <xpath expr="//filter[@name='order_month']" position="before">
+                <filter name="session_date_month" string="Session Date" context="{'group_by':'session_date'}"/>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- sale.view_order_product_graph -->
+    <!-- sale.view_order_product_pivot -->
+    <!-- sale.view_order_product_search -->
+</odoo>
