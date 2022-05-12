@@ -12,7 +12,7 @@
         </field>
     </record>
     
-    <record id="search_session_date" model="ir.ui.view">
+    <record id="search_quotation_session_date" model="ir.ui.view">
         <field name="name">sale.order.inherit.view.search</field>
         <field name="model">sale.order</field>
         <field name="inherit_id" ref="sale.sale_order_view_search_inherit_quotation"/>
@@ -51,7 +51,40 @@
         </field>
     </record>
 
-    <!-- sale.view_order_product_graph -->
-    <!-- sale.view_order_product_pivot -->
-    <!-- sale.view_order_product_search -->
+    
+    <record id="graph_session_date" model="ir.ui.view">
+        <field name="name">sale.report.inherit.view.graph</field>
+        <field name="model">sale.report</field>
+        <field name="inherit_id" ref="sale.view_order_product_graph"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='date']" position="replace">
+                <field name="session_date" type="row" interval="day"/>
+            </xpath>
+        </field>
+    </record>
+    
+    <record id="pivot_session_date" model="ir.ui.view">
+        <field name="name">sale.report.inherit.view.pivot</field>
+        <field name="model">sale.report</field>
+        <field name="inherit_id" ref="sale.view_order_product_pivot"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='date']" position="replace">
+                <field name="session_date" interval="month" type="row"/>
+            </xpath>
+        </field>
+    </record>
+    
+    <record id="search_session_date" model="ir.ui.view">
+        <field name="name">sale.report.inherit.view.search</field>
+        <field name="model">sale.report</field>
+        <field name="inherit_id" ref="sale.view_order_product_search"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='date']" position="before">
+                <filter name="session_date_filter" string="Session Date" date="session_date"/>
+            </xpath>
+            <xpath expr="//filter[@name='date']" position="before">
+                <filter name="session_date_month" string="Session Date" context="{'group_by':'session_date'}"/>
+            </xpath>
+        </field>
+    </record>
 </odoo>
