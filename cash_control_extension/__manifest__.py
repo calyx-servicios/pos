@@ -23,8 +23,8 @@
         # "crm",
     ],
     "data": [
-        'views/cash_control_config.xml',
-        'views/cash_control_session.xml',
-        'views/sale_views.xml',
+        "views/cash_control_config.xml",
+        "views/cash_control_session.xml",
+        "views/sale_views.xml",
     ],
 }
