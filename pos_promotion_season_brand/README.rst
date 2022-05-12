@@ -27,7 +27,7 @@ Install
 =======
 
 * Go to applications
-* Find module "promotion_season_brand"
+* Find module "pos_promotion_season_brand"
 * Press Install
 * Go to Point of sale > Promotions > Promotion program > and see the modifications
 
