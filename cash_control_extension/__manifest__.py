@@ -9,7 +9,7 @@
     "website": "https://odoo.calyx-cloud.com.ar/",
     "license": "AGPL-3",
     "category": "Endpoint",
-    "version": "13.0.0.0.1",
+    "version": "13.0.1.0.1",
     "development_status": "Production/Stable",
     "application": False,
     "installable": True,
@@ -23,7 +23,8 @@
         # "crm",
     ],
     "data": [
-        'views/cash_control_config.xml',
-        'views/cash_control_session.xml'
+        "views/cash_control_config.xml",
+        "views/cash_control_session.xml",
+        "views/sale_views.xml",
     ],
 }
