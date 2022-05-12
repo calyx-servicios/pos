@@ -1,4 +1,4 @@
-odoo.define('promotion_season_brand.order', function (require) {
+odoo.define('pos_promotion_season_brand.order', function (require) {
 "use strict";
 
 let models = require('point_of_sale.models');

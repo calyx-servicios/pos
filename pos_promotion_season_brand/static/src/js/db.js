@@ -1,4 +1,4 @@
-odoo.define('promotion_season_brand.DB', function (require) {
+odoo.define('pos_promotion_season_brand.DB', function (require) {
 "use strict";
     let PosDB = require('point_of_sale.DB');
 
