@@ -5,6 +5,7 @@
 			<script type="text/javascript" src="/pos_promotion_season_brand/static/src/js/db.js"></script>
 			<script type="text/javascript" src="/pos_promotion_season_brand/static/src/js/init.js"></script>
 			<script type="text/javascript" src="/pos_promotion_season_brand/static/src/js/order.js"></script>
+			<script type="text/javascript" src="/pos_promotion_season_brand/static/src/js/order_line.js"></script>
 		</xpath>
 	</template>
 
