@@ -10,9 +10,14 @@ class SaleOrder(models.Model):
         session_id = self.env['cash.control.session'].browse(self.cash_control_session_id)
         return session_id.config_id.team_id or default_outcome
 
-    session_date = fields.Datetime(
-        string='Session Date', 
+    session_date_start = fields.Datetime(
+        string='Session Date Start', 
         related="cash_control_session_id.date_start", 
+        store=True,
+        )
+    session_date_end = fields.Datetime(
+        string='Session Date End', 
+        related="cash_control_session_id.date_end", 
         store=True,
         )
     

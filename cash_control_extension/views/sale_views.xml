@@ -7,7 +7,7 @@
         <field name="inherit_id" ref="sale.view_quotation_tree"/>
         <field name="arch" type="xml">
             <xpath expr="//field[@name='create_date']" position="after">
-                <field name="session_date"/>
+                <field name="session_date_start"/>
             </xpath>
         </field>
     </record>
@@ -18,10 +18,12 @@
         <field name="inherit_id" ref="sale.sale_order_view_search_inherit_quotation"/>
         <field name="arch" type="xml">
             <xpath expr="//filter[@name='filter_create_date']" position="before">
-                <filter name="session_date_filter" string="Session Date" date="session_date"/>
+                <filter name="session_date_start_filter" string="Session Date Start" date="session_date_start"/>
+                <filter name="session_date_end_filter" string="Session Date End" date="session_date_end"/>
             </xpath>
             <xpath expr="//filter[@name='order_month']" position="before">
-                <filter name="session_date_month" string="Session Date" context="{'group_by':'session_date'}"/>
+                <filter name="session_date_start_month" string="Session Date Start" context="{'group_by':'session_date_start'}"/>
+                <filter name="session_date_end_month" string="Session Date End" context="{'group_by':'session_date_end'}"/>
             </xpath>
         </field>
     </record>
@@ -32,7 +34,7 @@
         <field name="inherit_id" ref="sale.view_order_tree"/>
         <field name="arch" type="xml">
             <xpath expr="//field[@name='date_order']" position="after">
-                <field name="session_date"/>
+                <field name="session_date_start"/>
             </xpath>
         </field>
     </record>
@@ -43,10 +45,12 @@
         <field name="inherit_id" ref="sale.sale_order_view_search_inherit_sale"/>
         <field name="arch" type="xml">
             <xpath expr="//filter[@name='order_date']" position="before">
-                <filter name="session_date_filter" string="Session Date" date="session_date"/>
+                <filter name="session_date_filter" string="Session Date Start" date="session_date_start"/>
+                <filter name="session_date_end_filter" string="Session Date End" date="session_date_end"/>
             </xpath>
             <xpath expr="//filter[@name='order_month']" position="before">
-                <filter name="session_date_month" string="Session Date" context="{'group_by':'session_date'}"/>
+                <filter name="session_date_start_month" string="Session Date Start" context="{'group_by':'session_date_start'}"/>
+                <filter name="session_date_end_month" string="Session Date End" context="{'group_by':'session_date_end'}"/>
             </xpath>
         </field>
     </record>
@@ -58,7 +62,7 @@
         <field name="inherit_id" ref="sale.view_order_product_graph"/>
         <field name="arch" type="xml">
             <xpath expr="//field[@name='date']" position="replace">
-                <field name="session_date" type="row" interval="day"/>
+                <field name="session_date_start" type="row" interval="day"/>
             </xpath>
         </field>
     </record>
@@ -69,7 +73,7 @@
         <field name="inherit_id" ref="sale.view_order_product_pivot"/>
         <field name="arch" type="xml">
             <xpath expr="//field[@name='date']" position="replace">
-                <field name="session_date" interval="month" type="row"/>
+                <field name="session_date_start" interval="month" type="row"/>
             </xpath>
         </field>
     </record>
@@ -80,10 +84,12 @@
         <field name="inherit_id" ref="sale.view_order_product_search"/>
         <field name="arch" type="xml">
             <xpath expr="//field[@name='date']" position="before">
-                <filter name="session_date_filter" string="Session Date" date="session_date"/>
+                <filter name="session_date_start_filter" string="Session Date Start" date="session_date_start"/>
+                <filter name="session_date_end_filter" string="Session Date End" date="session_date_end"/>
             </xpath>
             <xpath expr="//filter[@name='date']" position="before">
-                <filter name="session_date_month" string="Session Date" context="{'group_by':'session_date'}"/>
+                <filter name="session_date_start_month" string="Session Date Start" context="{'group_by':'session_date_start'}"/>
+                <filter name="session_date_end_month" string="Session Date End" context="{'group_by':'session_date_end'}"/>
             </xpath>
         </field>
     </record>
