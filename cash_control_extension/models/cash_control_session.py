@@ -8,6 +8,17 @@ _logger = logging.getLogger(__name__)
 class CashControlSession(models.Model):
     _inherit = "cash.control.session"
 
+    company_id = fields.Many2one(
+        "res.company",
+        string="Company",
+        required=True,
+        default=lambda self: self.env.company,
+    )
+
+    company_currency_id = fields.Many2one(
+        related="company_id.currency_id", string="Company currency", readonly=True
+    )
+
     user_id = fields.Many2one(comodel_name="res.users", string="Responsible")
     user_ids = fields.Many2many(comodel_name="res.users", string="Assignees")
 
