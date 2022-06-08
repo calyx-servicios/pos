@@ -104,8 +104,10 @@ class AccountPayment(models.Model):
                 if not rec.sale_order_id.cash_control_session_id:
                     rec.sale_order_id.cash_control_session_id = session.id
                 rec.cash_control_session_id = session.id
-            if rec.cash_control_session_id.state not in ['opened']:
-                raise ValidationError(_("The payment session was closed. Please create another payment"))
+            #TODO: Make this configurable------------------------------------------------------------------|
+            # if rec.cash_control_session_id.state not in ['opened']:                                      |
+            #     raise ValidationError(_("The payment session was closed. Please create another payment"))|
+            #----------------------------------------------------------------------------------------------|
             if rec.journal_id.type == 'cash':
 
                 bs = self.env['account.bank.statement'].search([
