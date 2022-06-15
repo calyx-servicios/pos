@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 13.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-05-31 17:30+0000\n"
-"PO-Revision-Date: 2022-05-31 17:30+0000\n"
+"POT-Creation-Date: 2022-06-07 12:13+0000\n"
+"PO-Revision-Date: 2022-06-07 12:13+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -36,10 +36,26 @@ msgid "Cash Control Session"
 msgstr "Sesión"
 
 #. module: cash_control_extension
+#: model:ir.model.fields,field_description:cash_control_extension.field_cash_control_session__company_id
+msgid "Company"
+msgstr ""
+
+#. module: cash_control_extension
+#: model:ir.model.fields,field_description:cash_control_extension.field_cash_control_session__company_currency_id
+msgid "Company currency"
+msgstr ""
+
+#. module: cash_control_extension
 #: model:ir.model.fields,field_description:cash_control_extension.field_cash_control_session__invoice_ids
 #: model_terms:ir.ui.view,arch_db:cash_control_extension.cash_control_session_add_transfer_tree
 msgid "Invoices"
 msgstr "Facturas"
+
+#. module: cash_control_extension
+#: model:ir.actions.act_window,name:cash_control_extension.action_move_journal_line
+#: model_terms:ir.ui.view,arch_db:cash_control_extension.cash_control_session_add_transfer_tree
+msgid "Journal Entries"
+msgstr "Apuntes Contables"
 
 #. module: cash_control_extension
 #: model:ir.model.fields,field_description:cash_control_extension.field_cash_control_session__user_id
