@@ -2,14 +2,12 @@
 <odoo>
     <record id="action_move_line_analisis" model="ir.actions.act_window">
         <field name="name">Análisis de Apuntes Contables</field>
-        <field name="type">ir.actions.act_window</field>
         <field name="res_model">account.move.line</field>
-        <!-- <field name="view_id" ref="view_wizard_multi_chart"/> -->
         <field name="view_mode">tree,graph,pivot</field>
-        <field name="context">{'cash_control_session_id':active_id}</field>
+        <field name="view_id" ref="account.view_move_line_tree_grouped"/>
+        <field name="search_view_id" ref="account.view_account_move_line_filter"/>
+        <field name="domain">[('cash_control_session_id','=',active_id)]</field>
     </record>
-
-    <!-- <menuitem id="menu_move_line_analisis" sequence="5" parent="account.account_reports_management_menu" action="action_move_line_analisis"/> -->
 <!-- TODO account.view_move_line_tree_grouped_general -->
     <record id="cash_control_session_add_transfer_tree" model="ir.ui.view">
         <field name="name">cash.control.session.form.inherit</field>
