@@ -20,7 +20,7 @@
     "depends": [
         "base",
         "cash_control",
-        # "crm",
+        "account_ux",
     ],
     "data": [
         "views/cash_control_config.xml",
