@@ -16,4 +16,6 @@ class PosPromotionSeason(models.Model):
     fixed_price = fields.Float('Fixed Price')
     disc_percentage = fields.Float('Disc. %')
     disc_amount = fields.Float('Disc. Amount')
+    bx_qty = fields.Float('Buy Qty X')
+    fy_qty = fields.Float('Free Qty Y')
 
