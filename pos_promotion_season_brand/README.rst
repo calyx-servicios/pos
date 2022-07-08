@@ -15,9 +15,9 @@ Point of sale Promotion season brand
 .. |badge2| image:: https://img.shields.io/badge/licence-AGPL--3-blue.png
     :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
     :alt: License: AGPL-3
-.. |badge3| image:: https://img.shields.io/badge/github-calyx--servicios%2Fcalyx-lightgray.png?logo=github
-    :target: https://github.com/calyx-servicios/calyx.git
-    :alt: calyx-servicios/calyx.git
+.. |badge3| image:: https://img.shields.io/badge/github-calyx--servicios%2Fpos-lightgray.png?logo=github
+    :target: https://github.com/calyx-servicios/pos.git
+    :alt: calyx-servicios/pos.git
 
 |badge1| |badge2| |badge3|
 
@@ -69,5 +69,5 @@ This module is maintained by the Calyx Servicios S.A.
 CALYX SERVICIOS S.A. It is part of the PGK Consultores economic group, member of an important global network, a world organization.
 The PGK Consultores group is one of the 20 largest consultant-studios in Argentina with nearly 300 professionals.
 
-This module is part of the `Calyx <https://github.com/calyx-servicios/pos>`_ project on Github.
+This module is part of the `Pos <https://github.com/calyx-servicios/pos>`_ project on Github.
 

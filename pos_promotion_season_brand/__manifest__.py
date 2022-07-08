@@ -10,14 +10,16 @@
     "website": "http://odoo.calyx-cloud.com.ar/",
     "license": "AGPL-3",
     "category": "Point of sale",
-    "version": "13.0.1.0.0",
+    "version": "13.0.2.1.0",
+    "installable": True,
+    "application": False,
     "depends": [
-        "point_of_sale",
         "product_seasons", 
         "pos_promotion_niq", 
         "product_brand_inventory"
     ],
     "data": [
+        'data/pos_promotion_type_data.xml',
         'security/ir.model.access.csv',
         'views/pos_promotion_views.xml',
         'views/point_of_sale_assets.xml',
