@@ -219,7 +219,7 @@ class CashControlSession(models.Model):
         vals["statement_ids"] = [(6, 0, statements)]
         vals["statement_id"] = statement.id
         session_ids = self.search(
-            [("user_ids", "in", self.env.user.id), ("state", "!=", "closed")]
+            [("user_ids", "in", self.env.user.id), ("state", "in", ["draft","opened"])]
         )
         if session_ids:
             raise UserError(
