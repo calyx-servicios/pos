@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+		<record model="pos.promotion.type" id="on_product_bxgy_combo">
+			<field name="name">Buy X Get Y Free Combo</field>
+			<field name="group">on_product</field>
+			<field name="code">prod_bxgy_free_combo</field>
+			<field name="sequence">2</field>
+		</record>
+    </data>
+</odoo>

@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 13.0+e\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-05-12 18:15+0000\n"
-"PO-Revision-Date: 2022-05-12 18:15+0000\n"
+"POT-Creation-Date: 2022-06-30 17:50+0000\n"
+"PO-Revision-Date: 2022-06-30 17:50+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -24,6 +24,13 @@ msgstr ""
 #, python-format
 msgid "Brand"
 msgstr "Marca"
+
+#. module: pos_promotion_season_brand
+#: model:ir.model.fields,field_description:pos_promotion_season_brand.field_pos_promotion_brand__buy_qty
+#: model:ir.model.fields,field_description:pos_promotion_season_brand.field_pos_promotion_category__buy_qty
+#: model:ir.model.fields,field_description:pos_promotion_season_brand.field_pos_promotion_season__buy_qty
+msgid "Buy Qty X"
+msgstr "Buy Qty X"
 
 #. module: pos_promotion_season_brand
 #: model:ir.model.fields,field_description:pos_promotion_season_brand.field_pos_promotion_brand__create_uid
@@ -73,6 +80,13 @@ msgstr "Estado"
 #, python-format
 msgid "Fixed Price"
 msgstr "Precio fijo"
+
+#. module: pos_promotion_season_brand
+#: model:ir.model.fields,field_description:pos_promotion_season_brand.field_pos_promotion_brand__free_qty
+#: model:ir.model.fields,field_description:pos_promotion_season_brand.field_pos_promotion_category__free_qty
+#: model:ir.model.fields,field_description:pos_promotion_season_brand.field_pos_promotion_season__free_qty
+msgid "Free Qty Y"
+msgstr "Free Qty Y"
 
 #. module: pos_promotion_season_brand
 #: model:ir.model.fields,field_description:pos_promotion_season_brand.field_pos_promotion_brand__id
@@ -157,6 +171,11 @@ msgstr "pos.promotion"
 #: model:ir.model,name:pos_promotion_season_brand.model_pos_promotion_brand
 msgid "pos.promotion.brand"
 msgstr "pos.promotion.brand"
+
+#. module: pos_promotion_season_brand
+#: model:ir.model,name:pos_promotion_season_brand.model_pos_promotion_category
+msgid "pos.promotion.category"
+msgstr "pos.promotion.category"
 
 #. module: pos_promotion_season_brand
 #: model:ir.model,name:pos_promotion_season_brand.model_pos_promotion_season

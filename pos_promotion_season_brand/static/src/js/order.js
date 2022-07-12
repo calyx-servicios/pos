@@ -8,7 +8,6 @@ let _super = Order.prototype;
 models.Order = Order.extend({
     initialize: function(attributes, options){
         _super.initialize.apply(this, arguments);
-
     },
     apply_promotion_on_product: function(promotions){
         let self = this;
@@ -36,20 +35,11 @@ models.Order = Order.extend({
             // product_ids of order
             let order_product_ids = self.get_order_product_ids(order_lines);
 
-            /**
-            There are 2 cases here to apply for BUY promotion:
-                - 1. If promotion has buy condition, order must contain product in condition_product_ids list
-                - 2. If promotion doesn't have condition, order can apply promotion as discount base on product
-            */
-            let standalone_condition_common_prod_ids = _.intersection(standalone_condition_prod_ids, order_product_ids).sort();
-
             // same for combo condition
             let combo_condition_common_prod_ids = _.intersection(combo_condition_prod_ids, order_product_ids).sort();
-
-
+			
             // the main logic is here
             if (!_.isEmpty(combo_condition_prod_ids)) {
-
                 // if exist standalone condition also, apply it
                 if (!_.isEmpty(standalone_condition_prod_ids)){
                     self.apply_with_condition_standalone(promotion);
@@ -58,35 +48,113 @@ models.Order = Order.extend({
                 if (_.isEqual(combo_condition_common_prod_ids.sort(), combo_condition_prod_ids.sort())) {
                     self.apply_with_condition_combo(promotion);
                 }
-
             } else {
-
-                    // if exist standalone condition also, apply it first
-                    if (!_.isEmpty(standalone_condition_prod_ids)){
-                        self.apply_with_condition_standalone(promotion);
-                    } else {
-                        self.apply_promotion_line_unlimit_times(prod_promotions);
-                    }
-
-                    // process for template promotion
-                    self.apply_promotion_line_unlimit_times(apply_tmpl_promotions);
-
-                    // process for category promotion
-                    self.apply_promotion_line_unlimit_times(apply_categ_promotions);
-
-					// process for season promotion
-                    self.apply_promotion_line_unlimit_times(apply_season_promotions);
-
-					// process for brand promotion
-                    self.apply_promotion_line_unlimit_times(apply_brand_promotions);
+	            if (!_.isEmpty(standalone_condition_prod_ids)){
+	                self.apply_with_condition_standalone(promotion);
+	            } else {
+	                self.apply_promotion_line_unlimit_times(prod_promotions);
+	            }
+	
+				if (promotion.promotion_code == 'prod_bxgy_free_combo') {
+					if(apply_categ_promotions.length != 0){
+						self.apply_promotion_free_combo(apply_categ_promotions);							
+					}
+					if(apply_season_promotions.length != 0){							
+						self.apply_promotion_free_combo(apply_season_promotions);
+					}
+					if(apply_brand_promotions.length != 0){
+						self.apply_promotion_free_combo(apply_brand_promotions);							
+					}
+				} else {
+					if(apply_tmpl_promotions.length != 0){
+						self.apply_promotion_line_unlimit_times(apply_tmpl_promotions);							
+					}
+					if(apply_categ_promotions.length != 0){
+						self.apply_promotion_line_unlimit_times(apply_categ_promotions);							
+					}
+					if(apply_season_promotions.length != 0){							
+						self.apply_promotion_line_unlimit_times(apply_season_promotions);
+					}
+					if(apply_brand_promotions.length != 0){
+						self.apply_promotion_line_unlimit_times(apply_brand_promotions);							
+					}
+				}
             }
 
         });
     },
+	apply_promotion_free_combo: function(promotion_lines){
+		let self = this;
+		let order_lines = self.get_orderlines();
+		let product_lines = [];
+		let qty_total = 0;
+		_.each(order_lines, function(order_line){
+            // check if this line is ok to apply
+            if (!order_line.get_promotion_id()
+                && !order_line.get_condition_promotion_id()) {
+                // check if product is product list of promotion program
+                _.each(promotion_lines, function(promotion_line){
+                    if ((_.has(promotion_line, 'category_id') && order_line.product.categ.id === promotion_line.category_id[0])
+						|| (_.has(promotion_line, 'season_id') && order_line.product.product_seasons_id[0] === promotion_line.season_id[0])
+						|| (_.has(promotion_line, 'brand_id') && order_line.product.brand_id[0] === promotion_line.brand_id[0])) {
+						
+						product_lines.push({'price': order_line.price, 'order_line':order_line, 'qty':order_line.quantity, 'promotion': promotion_line, 'done': false});
+						qty_total += order_line.quantity;
+                    }
+                })
+            }
+        });
+		product_lines.sort(function (a, b) {
+			if (a.price > b.price) {
+				return 1;
+			}
+			if (a.price < b.price) {
+				return -1;
+			}
+			// a must be equal to b
+			return 0;
+		});
+		_.each(promotion_lines, function(promotion_line){
+			let promos_qty = 1;
+			let qty_discount = promotion_line.bx_qty - promotion_line.fy_qty;
+			let promos_qty_apply = parseInt(qty_total / promotion_line.bx_qty);
+			let line_clone = 0;
+			while (promos_qty <= promos_qty_apply){
+				let qty_discounted = 0;
+				while (qty_discounted != qty_discount){
+					for (let [k, line] of product_lines.entries()){
+						if (line.done == false && qty_discounted != qty_discount){
+							var origin_qty = line.order_line.get_quantity();
+							if (origin_qty == 1){
+								line.done = true;
+								line.order_line.set_discount(line.order_line.price);
+							} else {
+								line.order_line.set_quantity(origin_qty - 1);
+								if (line_clone == 0){
+									var new_line = line.order_line.clone();
+		                            self.add_orderline(new_line);
+		                            new_line.set_quantity(1);
+									new_line.set_discount(line.order_line.price);
+									line_clone = new_line.id;
+								} else {
+									let line_discount = _.filter(self.get_orderlines(), function(order_line){
+										return order_line.id == line_clone
+									})
+									line_discount[0].set_quantity(line_discount[0].quantity + 1);
+								}
+							}
+							qty_discounted +=1;
+							break;
+						}
+					}
+				}
+				promos_qty +=1;
+			};
+		});
+	},
     apply_with_condition_combo: function(promotion){
         let self = this;
         let apply_times = [];
-        let apply_lines = [];
         let condition_line_ids = [];
         let all_condition_ok = true;
         let combo_conditions = self.pos.db.get_promo_combo_condition_by_promo_id(promotion.id);
@@ -122,7 +190,6 @@ models.Order = Order.extend({
             if (!all_condition_ok){
                 break;
             }
-
         }
 
         if (!all_condition_ok){
@@ -147,9 +214,6 @@ models.Order = Order.extend({
         if (apply_times > 0 && all_condition_ok){
             // find line to apply promotion
             let apply_lines = _.filter(self.get_orderlines(), function(order_line){
-                // return _.indexOf(condition_line_ids, order_line.id) === -1
-                //         && !order_line.get_promotion_id()
-                //         && !order_line.get_condition_promotion_id()
                 return !order_line.get_promotion_id();
             })
 
@@ -191,7 +255,6 @@ models.Order = Order.extend({
     },
     apply_promotion_line_limit_times: function(apply_lines, promotion_lines, apply_times){
         let self = this;
-        // case (_.isEmpty(multi_condition_product_ids) && _.isEmpty(standalone_condition_prod_ids))
         if (!apply_times){
             console.log(">> apply_promotion_line: apply_time is:", apply_times);
             return false;
@@ -236,10 +299,7 @@ models.Order = Order.extend({
 						   || (_.has(promotion_line, 'season_id') && order_line.product.product_seasons_id[0] === promotion_line.season_id[0])
 						   || (_.has(promotion_line, 'brand_id') && order_line.product.brand_id[0] === promotion_line.brand_id[0])
                            || (_.has(promotion_line, 'template_id') && order_line.product.product_tmpl_id === promotion_line.template_id[0])) {
-                            // if product has apply_times < qty of line, split it
-                            if (apply_times < order_line.get_quantity()){
-                                let new_line = order_line.split_line(apply_times);
-                            }
+                            
                             order_line.set_product_promotion(promotion_line);
                             apply_times -= order_line.get_quantity();
 
