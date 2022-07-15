@@ -14,7 +14,7 @@
         # 'account_multi_store',
     ],
     "data": [
-        "security/security.xml",
+        # "security/security.xml", saved for future reference
         "security/ir.model.access.csv",
         "wizards/add_credit_note.xml",
         "wizards/cash_control_details.xml",
@@ -26,6 +26,8 @@
         "views/cash_control_config_view.xml",
         "views/cash_control_session_view.xml",
         "views/cash_control_transfer_cash_view.xml",
+        "views/res_company.xml",
+        "views/res_config_settings.xml",
         "views/menuitems.xml",
         "views/sale_order.xml",
         "report/cash_control_report.xml",

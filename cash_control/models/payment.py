@@ -86,46 +86,73 @@ class AccountPayment(models.Model):
         self.amount_paid = sum(payment.amount for payment in self.statement_ids)
         return args.get('statement_id', False)
 
-    def post(self):
-        # busco un session activo
-        # si no hay -> warning
-        # session = self.env['cash.control.session'].search([
-        #     ('user_ids', 'in', self.env.uid),
-        #     ('state', '=', 'opened')
-        # ])
-        for rec in self:
-            if not rec.cash_control_session_id:
-                session = self.env['cash.control.session'].search([
-                    ('user_ids', 'in', self.env.uid),
-                    ('state', '=', 'opened')
-                ])
-                if not session:
-                    raise ValidationError(_("There is not open cash session for de the current user. Please open a cash session"))
-                if not rec.sale_order_id.cash_control_session_id:
-                    rec.sale_order_id.cash_control_session_id = session.id
-                rec.cash_control_session_id = session.id
-            #TODO: Make this configurable------------------------------------------------------------------|
-            # if rec.cash_control_session_id.state not in ['opened']:                                      |
-            #     raise ValidationError(_("The payment session was closed. Please create another payment"))|
-            #----------------------------------------------------------------------------------------------|
-            if rec.journal_id.type == 'cash':
 
-                bs = self.env['account.bank.statement'].search([
-                    ('cash_control_session_id', '=', rec.cash_control_session_id.id),
-                    ('journal_id', '=', rec.journal_id.id)
-                ])
-                if not bs:
-                    raise UserError(_('There is not session statement for journal %s.') % rec.journal_id.name)
-                data = {
-                    'amount': rec.amount if rec.payment_type_copy == 'inbound' else rec.amount * -1,
-                    'payment_date': fields.Date.context_today(self),
-                    'payment_name': 'Payment %s/%s'%(
-                        rec.sale_order_id.name,
-                        rec.cash_control_session_id.name
-                    ),
-                    'journal': rec.journal_id.id,
-                    'statement_id': bs,
-                }
-                rec.add_payment(data)
+    def post(self):
+        """If user has an open cash control session, both sale order and account payment
+        should have that cash_control_session_id. If payment was made in cash then it should be
+        added to the session's bank statement.
+        If 'allow session less payments' or 'allow closed session payments'
+        setting is not activated, errors should araise
+        Raises:
+            ValidationError: Payment session is closed
+            UserError: Session has no cash bank statement (configuration issue)
+            ValidationError: No open session for user
+
+        Returns:
+            function: super().Post()
+        """
+        for rec in self:
+            session = self.env["cash.control.session"].search(
+                [("user_ids", "in", self.env.uid), ("state", "=", "opened")]
+            )
+            if session:
+                if not rec.cash_control_session_id:
+                    if not rec.sale_order_id.cash_control_session_id:
+                        rec.sale_order_id.cash_control_session_id = session.id
+                    rec.cash_control_session_id = session.id
+                    if (
+                        rec.cash_control_session_id.state not in ["opened"]
+                        and not rec._allow_closed_session_payment()
+                    ):
+                        raise ValidationError(
+                            _(
+                                "The payment session was closed. Please create another payment"
+                            )
+                        )
+                if rec.journal_id.type == "cash":
+                    bs_domain = [
+                        (
+                            "cash_control_session_id",
+                            "=",
+                            rec.cash_control_session_id.id,
+                        ),
+                        ("journal_id", "=", rec.journal_id.id),
+                    ]
+                    bs = self.env["account.bank.statement"].search(bs_domain)
+                    if not bs:
+                        raise UserError(
+                            _("There is not session statement for journal %s.")
+                            % rec.journal_id.name
+                        )
+                    data = {
+                        "amount": rec.amount
+                        if rec.payment_type_copy == "inbound"
+                        else rec.amount * -1,
+                        "payment_date": fields.Date.context_today(self),
+                        "payment_name": "Payment %s/%s"
+                        % (rec.sale_order_id.name, rec.cash_control_session_id.name),
+                        "journal": rec.journal_id.id,
+                        "statement_id": bs,
+                    }
+                    rec.add_payment(data)
+            else:
+                if not rec.company_id.allow_sessionless_payments:
+                    raise ValidationError(
+                        _(
+                            "There is not open cash session for de the current user. Please open a cash session"
+                        )
+                    )
         return super(AccountPayment, self).post()
 
+    def _allow_closed_session_payment(self):
+        return self.company_id.allow_closed_session_payments
