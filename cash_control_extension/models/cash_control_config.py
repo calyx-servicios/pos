@@ -14,3 +14,11 @@ class CashControlConfig(models.Model):
     )
 
     team_id = fields.Many2one(comodel_name="crm.team", string="Sales Team")
+
+    location_id = fields.Many2one(
+        comodel_name="stock.location",
+        string="Location",
+        domain=[("usage", "=", "internal")],
+        help="Default location to deduce stock on sales"
+    )
+
