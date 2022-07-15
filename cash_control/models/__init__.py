@@ -10,3 +10,5 @@ from . import cash_control_transfer_cash
 from . import partner
 from . import sale
 from . import account_move
+from . import res_company
+from . import res_config_settings
