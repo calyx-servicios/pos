@@ -14,7 +14,7 @@
         # 'account_multi_store',
     ],
     "data": [
-        # "security/security.xml", saved for future reference
+        "security/security.xml",
         "security/ir.model.access.csv",
         "wizards/add_credit_note.xml",
         "wizards/cash_control_details.xml",
