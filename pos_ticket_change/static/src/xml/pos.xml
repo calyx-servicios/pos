@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="point_of_sale.template" xml:space="preserve">
+	<t t-extend="OrderReceipt">
+		<t t-jquery='.pos-receipt' t-operation='append'>
+			<br/><br/><br/><br/>
+			<t t-if='receipt.company.logo'>
+                <img class="pos-receipt-logo" t-att-src='receipt.company.logo' alt="Logo"/>
+            </t>
+            <t t-if='!receipt.company.logo'>
+                <h2 class="pos-receipt-center-align">
+                    <t t-esc='receipt.company.name'/>
+                </h2>
+            </t>
+            <br/>
+            <div class="pos-receipt-contact">
+                <t t-if='receipt.company.contact_address'>
+                    <div><t t-esc='receipt.company.contact_address'/></div>
+                </t>
+                <t t-if='receipt.cashier'>
+                    <div class='cashier'>
+                        <div>--------------------------------</div>
+                        <div>Served by <t t-esc='receipt.cashier'/></div>
+                    </div>
+                </t>
+            </div>
+            <br/>
+            <!-- <br/><div class='orderlines'>
+                <t t-foreach='receipt.orderlines' t-as='line'>
+	                <div t-esc='line.product_name_wrapped[0]'/> SKU
+	                <t t-call="OrderReceiptWrappedProductNameLines"/>
+	                <div class="pos-receipt-left-padding">
+	                    <t t-esc="Math.round(line.quantity * Math.pow(10, pos.dp['Product Unit of Measure'])) / Math.pow(10, pos.dp['Product Unit of Measure'])"/>
+	                    <t t-if='line.unit_name !== "Units"' t-esc='line.unit_name'/> 
+	                </div> QUANTITY AND UNIT OF MEASURE
+                </t>
+            </div>
+            <br/>
+            <div>
+				Total Items
+				<span t-esc="order.get_total_items()" class="pos-receipt-right-align"/>
+			</div> -->
+            <div class="receipt-change">
+            	<h4 class="pos-receipt-center-align">
+                    TICKET CHANGE
+                </h4>
+            </div>
+            <br/>
+            <div class="pos-receipt-order-data">
+                <div><t t-esc='receipt.name'/></div>
+                <div><t t-esc='receipt.date.localestring'/></div>
+            </div>
+			<div>
+				<div style="margin:auto;margin-top:10px;" id="barcode_print_change"></div>
+			</div>
+		</t>
+	</t>
+</templates>
