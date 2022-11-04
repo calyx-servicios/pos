@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <!-- res.company inherit form view -->
+    <record id="company_view_form" model="ir.ui.view">
+        <field name="name">res.company.inherit.view.form</field>
+        <field name="model">res.company</field>
+        <field name="inherit_id" ref="base.view_company_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='partner_id']" position="after">
+                <field name="allow_sessionless_payments" invisible="0"/>
+                <field name="allow_closed_session_payments" invisible="0"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>
