@@ -8,6 +8,17 @@ _logger = logging.getLogger(__name__)
 class CashControlSession(models.Model):
     _inherit = "cash.control.session"
 
+    company_id = fields.Many2one(
+        "res.company",
+        string="Company",
+        required=True,
+        default=lambda self: self.env.company,
+    )
+
+    company_currency_id = fields.Many2one(
+        related="company_id.currency_id", string="Company currency", readonly=True
+    )
+
     user_id = fields.Many2one(comodel_name="res.users", string="Responsible")
     user_ids = fields.Many2many(comodel_name="res.users", string="Assignees")
 
@@ -24,17 +35,21 @@ class CashControlSession(models.Model):
 
     def _compute_invoice_ids(self):
         for session in self:
-            session.invoice_ids = self.env["account.move"].search([
-                ("cash_control_session_id", "=", session.id),
-                ("journal_id.type", "in", ["sale", "purchase"]),
-            ])
-
+            session.invoice_ids = self.env["account.move"].search(
+                [
+                    ("cash_control_session_id", "=", session.id),
+                    ("journal_id.type", "in", ["sale", "purchase"]),
+                ]
+            )
 
     @api.depends("statement_id")
     def _compute_transfer_ids(self):
         for session in self:
             session.transfer_ids = self.env["account.bank.statement.line"].search(
-                [("statement_id", "=", session.statement_id.id)]
+                [
+                    ("statement_id", "=", session.statement_id.id),
+                    ("transaction_type", "in", ["TRANSFER_OUT", "TRANSFER_IN"]),
+                ]
             )
 
     @api.model
