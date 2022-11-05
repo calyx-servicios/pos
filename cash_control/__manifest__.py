@@ -26,6 +26,8 @@
         "views/cash_control_config_view.xml",
         "views/cash_control_session_view.xml",
         "views/cash_control_transfer_cash_view.xml",
+        "views/res_company.xml",
+        "views/res_config_settings.xml",
         "views/menuitems.xml",
         "views/sale_order.xml",
         "report/cash_control_report.xml",
