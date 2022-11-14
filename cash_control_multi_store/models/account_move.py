@@ -21,7 +21,7 @@ class AccountMove(models.Model):
     def post(self):
         if not self.journal_id.multi_store:
             if not self.store_id:
-                store_id = self.journal_id.id
+                store_id = self.journal_id.store_id
                 if not store_id:
                     raise UserError(_("Move must have a store assigned if journal is not Multi Store"))
                 self.store_id = store_id.id
