@@ -42,11 +42,11 @@ odoo.define('pos_electronic_qr_receipt', function (require) {
 							     model: 'account.move',
 							     method: 'search_read',
 							     args: [[['id', '=', account_move]], ['afip_auth_code',
-							                                        'name',
+							                                        'afip_qr_code',
 							                                        ]],
 							}).then(function (invoices) {
-							    self.receipt_data['order']['afip_auth_code'] = invoices[0]['name'];
-							    self.receipt_data['order']['afip_qr_code'] = invoices[0]['name'];
+							    self.receipt_data['order']['afip_auth_code'] = invoices[0]['afip_auth_code'];
+							    self.receipt_data['order']['afip_qr_code'] = invoices[0]['afip_qr_code'];
 							});
                         }
                     }
@@ -77,11 +77,11 @@ odoo.define('pos_electronic_qr_receipt', function (require) {
 						     model: 'account.move',
 						     method: 'search_read',
 						     args: [[['id', '=', account_move]], ['afip_auth_code',
-						                                        'name',
+						                                        'afip_qr_code',
 						                                        ]],
 						}).then(function (invoices) {
-						    self.pos.get_order()['afip_auth_code'] = invoices[0]['name'];
-					        self.pos.get_order()['afip_qr_code'] = invoices[0]['name'];
+						    self.pos.get_order()['afip_auth_code'] = invoices[0]['afip_auth_code'];
+					        self.pos.get_order()['afip_qr_code'] = invoices[0]['afip_qr_code'];
 							self.$('.pos-receipt-container').html(qweb.render('OrderReceipt', self.get_receipt_render_env()));
 						});
                     }
