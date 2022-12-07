@@ -27,19 +27,39 @@ class CashControlSession(models.Model):
         comodel_name="account.bank.statement.line",
         compute="_compute_transfer_ids",
     )
-    invoice_ids = fields.Many2many(
-        string="Invoices",
+
+    def invoice_ids_domain(self):
+        return [
+            ("journal_id.type", "in", ["sale","purchase"]),
+        ]
+
+    invoice_ids = fields.One2many(
         comodel_name="account.move",
+        inverse_name="cash_control_session_id",
+        string="Invoices",
+        domain=invoice_ids_domain,
+    )
+
+    sale_invoice_ids = fields.Many2many(
+        comodel_name="account.move",
+        string="Sale Invoices",
         compute="_compute_invoice_ids",
     )
 
+    purchase_invoice_ids = fields.Many2many(
+        comodel_name="account.move",
+        string="Purchase Invoices",
+        compute="_compute_invoice_ids",
+    )
+
+    @api.depends("invoice_ids")
     def _compute_invoice_ids(self):
         for session in self:
-            session.invoice_ids = self.env["account.move"].search(
-                [
-                    ("cash_control_session_id", "=", session.id),
-                    ("journal_id.type", "in", ["sale", "purchase"]),
-                ]
+            session.sale_invoice_ids = self.invoice_ids.filtered(
+                lambda i: i.journal_id.type == "sale"
+            )
+            session.purchase_invoice_ids = self.invoice_ids.filtered(
+                lambda i: i.journal_id.type == "purchase"
             )
 
     @api.depends("statement_id")

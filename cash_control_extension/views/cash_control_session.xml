@@ -37,8 +37,10 @@
                         </tree>
                     </field>
                 </page>
+            </xpath>
+            <xpath expr="//page[@name='orders']" position="after">
                 <page string="Invoices" name="invoices">
-                    <field name="invoice_ids">
+                    <field name="invoice_ids" invisible="1">
                         <tree>
                             <field name="user_id" optional="show"/>
                             <field name="name"/>
@@ -48,6 +50,30 @@
                             <field name="state"/>
                         </tree>
                     </field>
+                    <group name="sale_invoices" string="Sale Invoices">
+                        <field name="sale_invoice_ids" nolabel="1">
+                            <tree>
+                                <field name="user_id" optional="show"/>
+                                <field name="name"/>
+                                <field name="invoice_origin"/>
+                                <field name="partner_id"/>
+                                <field name="amount_total_signed" string="Total" sum="Total"/>
+                                <field name="state"/>
+                            </tree>
+                        </field>
+                    </group>
+                    <group name="purchase_invoices" string="Purchase Invoices">
+                        <field name="purchase_invoice_ids" nolabel="1">
+                            <tree>
+                                <field name="user_id" optional="show"/>
+                                <field name="name"/>
+                                <field name="invoice_origin"/>
+                                <field name="partner_id"/>
+                                <field name="amount_total_signed" string="Total" sum="Total"/>
+                                <field name="state"/>
+                            </tree>
+                        </field>
+                    </group>
                 </page>
             </xpath>
         </field>
