@@ -1,0 +1,67 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* pos_electronic_qr_receipt
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 13.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-12-06 13:14+0000\n"
+"PO-Revision-Date: 2022-12-06 13:14+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: pos_electronic_qr_receipt
+#. openerp-web
+#: code:addons/pos_electronic_qr_receipt/static/src/xml/pos_electronic_qr_receipt.xml:0
+#: code:addons/pos_electronic_qr_receipt/static/src/xml/pos_electronic_qr_receipt.xml:0
+#, python-format
+msgid "CAE number:"
+msgstr "CAE:"
+
+#. module: pos_electronic_qr_receipt
+#: model_terms:ir.ui.view,arch_db:pos_electronic_qr_receipt.pos_config_duplicate_receipt
+msgid "E-Invoice Ticket"
+msgstr "Ticket Electrónico"
+
+#. module: pos_electronic_qr_receipt
+#. openerp-web
+#: code:addons/pos_electronic_qr_receipt/static/src/xml/pos_electronic_qr_receipt.xml:0
+#: code:addons/pos_electronic_qr_receipt/static/src/xml/pos_electronic_qr_receipt.xml:0
+#, python-format
+msgid "Invoice number:"
+msgstr "Número de factura:"
+
+#. module: pos_electronic_qr_receipt
+#: model_terms:ir.ui.view,arch_db:pos_electronic_qr_receipt.pos_config_duplicate_receipt
+msgid "POS auto invoice"
+msgstr "Número de factura:"
+
+#. module: pos_electronic_qr_receipt
+#: model:ir.model.fields,help:pos_electronic_qr_receipt.field_pos_config__pos_auto_invoice
+msgid "POS auto to checked to invoice button"
+msgstr "POS Factura automática"
+
+#. module: pos_electronic_qr_receipt
+#: model:ir.model,name:pos_electronic_qr_receipt.model_pos_config
+msgid "Point of Sale Configuration"
+msgstr "Configuración del punto de venta"
+
+#. module: pos_electronic_qr_receipt
+#: model:ir.model.fields,field_description:pos_electronic_qr_receipt.field_pos_config__pos_auto_invoice
+msgid "Pos Auto Invoice"
+msgstr "Generar siempre factura"
+
+#. module: pos_electronic_qr_receipt
+#: model:ir.model.fields,field_description:pos_electronic_qr_receipt.field_pos_config__receipt_invoice_number
+msgid "Receipt Invoice Number"
+msgstr ""
+
+#. module: pos_electronic_qr_receipt
+#: model_terms:ir.ui.view,arch_db:pos_electronic_qr_receipt.pos_config_duplicate_receipt
+msgid "Receipt show invoice information"
+msgstr "Mostrar información de la factura en el ticket"
