@@ -14,8 +14,8 @@
                     <!--field name="state"/-->
                     <field name="current_session_id"/>
                     <field name="session_state_info"/>
-                    <field name="company_id"/>
-                    <!-- groups="base.group_multi_company" -->
+                    <field name="company_id" groups="base.group_multi_company"/>
+                    <!--  -->
                     <!--<button name="open_session" attrs="{'invisible': [('current_session_id', '!=', False)]}" string="Open Session" type="object"/><button name="open_cashbox_pos" type="object" string="Start Session" context="{'balance': 'start'}" attrs="{'invisible': [('session_state', '!=', 'draft')]}"/><button name="close_session" attrs="{'invisible': [('session_state', '!=', 'opened')]}" string="Close Session" type="object"/><button name="open_cashbox_pos" type="object" string="Set Closing Cash" context="{'balance': 'close'}" attrs="{'invisible': [('session_state', '!=', 'opened')]}"/>-->
                     <!--TODO: close session deberia mostrar el wizard de cierre de caja y al confirmar pasar a estado closed-->
                 </tree>
