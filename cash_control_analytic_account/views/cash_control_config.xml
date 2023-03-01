@@ -7,7 +7,7 @@
         <field name="inherit_id" ref="cash_control.cash_control_config_form"/>
         <field name="arch" type="xml">
             <xpath expr="//field[@name='session_sequence_id']" position="after">
-                <field name="analytic_account_id"/>
+                <field name="analytic_account_id" domain="[('company_id','=',company_id)]"/>
             </xpath>
         </field>
     </record>
