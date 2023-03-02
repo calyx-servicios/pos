@@ -14,10 +14,6 @@
     "development_status": "Production/Stable",
     "application": False,
     "installable": True,
-    "external_dependencies": {
-        "python": [],
-        "bin": [],
-    },
     "depends": ["base", "cash_control"],
     "data": ["views/cash_control_config.xml"],
 }
