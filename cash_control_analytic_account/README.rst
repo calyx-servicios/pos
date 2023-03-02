@@ -14,32 +14,20 @@ Cash Control Analytic Account
 
 |badge1| |badge2| |badge3|
 
-This module extends the functionality of ... to support ... and to allow you to ...
+This module extends the functionality of Cash Control to support Analytic accounts to be assigned to each
+Cash Control Config and all moves with that config's sessions will have the same Analytic Account
 
 **Table of contents**
 
 .. contents::
    :local:
 
-Configure
-=========
-
-Go to ...
-
 Usage
 =====
 
-1. Go to ...
-
-Known issues / Roadmap
-======================
-
-* Bugs or Roadmap
-
-Bug Tracker
-===========
-
-* Contact to the development team
+1. Go to Cash Control Config
+2. Add an Analytic Account
+3. All journal items corresponding to that Config should will have the same Analytic Account
 
 Credits
 =======
