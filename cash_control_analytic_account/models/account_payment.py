@@ -1,5 +1,4 @@
-from odoo import models, fields, api, _
-
+from odoo import models
 
 class AccountPayment(models.Model):
     _inherit = "account.payment"
