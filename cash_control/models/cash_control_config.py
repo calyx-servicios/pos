@@ -216,10 +216,10 @@ class CashControlConfig(models.Model):
         return res
 
     def write(self, values):
-        # if not self.user_has_groups('cash_control.administacion') \
+        # if not self.user_has_groups('cash_control.administrator') \
         #    and 'current_session_id' not in values.keys() \
         #    and 'transfer_pendientes' not in values.keys():
-        #     group = self.env.ref('cash_control.administacion').sudo()
+        #     group = self.env.ref('cash_control.administrator').sudo()
         #     raise UserError(_(
         #         'Only users with "%s" group can write a cash control config') % (
         #         group.name))
