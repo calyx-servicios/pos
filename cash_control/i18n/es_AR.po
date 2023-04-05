@@ -164,7 +164,7 @@ msgid "Add credit note in payment."
 msgstr ""
 
 #. module: cash_control
-#: model:res.groups,name:cash_control.administacion
+#: model:res.groups,name:cash_control.administrator
 msgid "Administrator"
 msgstr ""
 
@@ -603,7 +603,7 @@ msgid "Main Attachment"
 msgstr ""
 
 #. module: cash_control
-#: model:res.groups,name:cash_control.caja
+#: model:res.groups,name:cash_control.cashier
 msgid "Manager"
 msgstr ""
 
