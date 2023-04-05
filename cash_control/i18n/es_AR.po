@@ -1107,3 +1107,18 @@ msgstr "Recibir"
 #: model:ir.model,name:cash_control.model_cash_control_transfer_cash
 msgid "transfer Cash"
 msgstr "Transferir Efectivo"
+
+#. module: cash_control
+#: model:res.groups,name:cash_control.superadmin
+msgid "SuperAdmin"
+msgstr "Super Administrador"
+
+#. module: cash_control
+#: model:res.groups,name:cash_control.cashier
+msgid "Cashier"
+msgstr "Caja"
+
+#. module: cash_control
+#: model:res.groups,name:cash_control.administrator
+msgid "Admin"
+msgstr "Administrador"
