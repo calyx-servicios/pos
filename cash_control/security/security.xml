@@ -14,17 +14,17 @@
         <field name="category_id" ref="cash_control.cash_control"/>
     </record>
     <record id="cashier" model="res.groups">
-        <field name="name">Manager</field>
+        <field name="name">Cashier</field>
         <field name="category_id" ref="cash_control.cash_control"/>
         <field name="implied_ids" eval="[(4,ref('cash_control.salesman'))]"/>
     </record>
     <record id="administrator" model="res.groups">
-        <field name="name">Administrator</field>
+        <field name="name">Admin</field>
         <field name="category_id" ref="cash_control.cash_control"/>
         <field name="implied_ids" eval="[(4,ref('cash_control.cashier'))]"/>
     </record>
-        <record id="superadmin" model="res.groups">
-        <field name="name">SuperAdministrator</field>
+    <record id="superadmin" model="res.groups">
+        <field name="name">SuperAdmin</field>
         <field name="category_id" ref="cash_control.cash_control"/>
         <field name="implied_ids" eval="[(4,ref('cash_control.administrator'))]"/>
         <field name="users" eval="[(4, ref('base.user_root')), (4, ref('base.user_admin'))]"/>
