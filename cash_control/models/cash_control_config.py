@@ -50,7 +50,6 @@ class CashControlConfig(models.Model):
     session_sequence_id = fields.Many2one(
         'ir.sequence',
         string='Session Sequence',
-        readonly=True,
         copy=False
     )
     sequence_id = fields.Many2one(
