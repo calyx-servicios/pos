@@ -14,6 +14,11 @@ class CashControlTransferCash(models.Model):
     _name = 'cash.control.transfer.cash'
     _description = 'transfer Cash'
 
+    @api.model
+    def _get_server_timezone(self):
+        timezone = self.env['ir.config_parameter'].sudo().get_param('timezone')
+        return timezone or 'UTC'
+
     state = fields.Selection(
         [('draft', 'draft'), ('transfer', 'transfer'), ('receipt', 'receipt')],
         string='State',
@@ -33,9 +38,8 @@ class CashControlTransferCash(models.Model):
 
     dest_cash_control_id = fields.Many2one(
         'cash.control.config',
-        string='Dest journal',
+        string='Dest Cashbox',
         domain=[('session_state', '=', 'opened'), ],
-        required=True,
     )
 
     dest_journal_id = fields.Many2one(
@@ -64,7 +68,7 @@ class CashControlTransferCash(models.Model):
 
     date = fields.Datetime(
         string='Date',
-        default=fields.Date.today()
+        default= lambda self: fields.Datetime.now(self._get_server_timezone())
     )
 
     def action_transfer(self):
@@ -86,7 +90,7 @@ class CashControlTransferCash(models.Model):
             close_orig = True
 
         out_values = {
-            'date': fields.Date.today(),
+            'date': fields.Datetime.now(self._get_server_timezone()),
             'statement_id': orig_st.id,
             'journal_id': self.orig_journal_id.id,
             'amount': -self.amount or 0.0,
@@ -123,7 +127,7 @@ class CashControlTransferCash(models.Model):
             'company_id': self.env.user.company_id.id,
             'journal_id': SALES_JOURNAL,
             'ref': self.name,
-            'date': fields.Date.today(),
+            'date': fields.Datetime.now(self._get_server_timezone()),
             'line_ids': lines
         })
         move.post()
@@ -136,7 +140,7 @@ class CashControlTransferCash(models.Model):
             raise ValidationError('La caja de destino esta cerrada')
 
         in_values = {
-            'date': fields.Date.today(),
+            'date': fields.Datetime.now(self._get_server_timezone()),
             'statement_id': dest_st.id,
             'journal_id': dest_st.journal_id.id,
             'amount': self.amount or 0.0,

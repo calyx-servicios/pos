@@ -64,7 +64,7 @@
                                 <field name="user_ids" required="True" widget="many2many_tags"/>
                                 <!-- domain="[('store_ids','=',store_id),]"  -->
                                 <field attrs="{'readonly': [('current_session_id', '!=', False)]}" name="amount_authorized_diff"/>
-                                <field name="session_sequence_id" readonly="True"/>
+                                <field name="session_sequence_id" groups="cash_control.superadmin"/>
                                 <!-- groups="cash_control.administrator"  -->
                             </group>
                             <group>
