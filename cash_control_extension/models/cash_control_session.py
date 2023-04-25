@@ -11,8 +11,7 @@ class CashControlSession(models.Model):
     company_id = fields.Many2one(
         "res.company",
         string="Company",
-        required=True,
-        default=lambda self: self.env.company,
+        related="config_id.company_id"
     )
 
     company_currency_id = fields.Many2one(
