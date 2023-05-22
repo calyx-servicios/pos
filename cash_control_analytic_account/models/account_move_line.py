@@ -1,11 +1,12 @@
 from odoo import models, fields, api
-
+import logging
 
 class AccountMoveLine(models.Model):
     _inherit = "account.move.line"
 
     manual_analytic_account_id = fields.Many2one(
         comodel_name="account.analytic.account",
+        default= False
     )
 
     analytic_account_id = fields.Many2one(
@@ -20,10 +21,8 @@ class AccountMoveLine(models.Model):
     def _compute_analytic_account_id(self):
         for line in self:
             cc_session_id = line.move_id.cash_control_session_id
-            if cc_session_id:
-                cc_analytic_account_id = cc_session_id.config_id.analytic_account_id
-                if cc_analytic_account_id:
-                    line.analytic_account_id = cc_analytic_account_id.id
+            if cc_session_id and not line.manual_analytic_account_id:
+                line.analytic_account_id = cc_session_id.config_id.analytic_account_id
             else:
                 line.analytic_account_id = line.manual_analytic_account_id or False
 
