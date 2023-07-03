@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="point_of_sale.template" xml:space="preserve">
+    <t t-extend="OrderReceipt">
+        <t t-jquery="t[t-if*='receipt.cashier']" t-operation="before">
+            <t t-if="order.invoice_number and widget.pos.config.receipt_invoice_number">
+                <div class="afip-invoice-info" >
+                    <div>------------------------------------------</div>
+                    <strong>Invoice number:</strong>
+                    <t t-esc="order.invoice_number"/><br />
+                    <t t-if="order.afip_auth_code and widget.pos.config.receipt_invoice_number">
+                    <strong>CAE number:</strong>
+                    <t t-esc="order.afip_auth_code"/><br />
+                    </t> 
+                </div>
+            </t>
+        </t>
+        <t t-jquery=".before-footer" t-operation="after">
+        	<t t-if="order.afip_qr_code and widget.pos.config.receipt_invoice_number">
+                <div class="afip-qr-info" >
+                    <div style="overflow: hidden; display: flex; justify-content: center;">
+                        <img t-attf-src="/report/barcode/?type={{'QR'}}&amp;value={{order.afip_qr_code}}&amp;width={{200}}&amp;height={{200}}" style="width:200;height:200   align-self: center;" />
+                    </div>
+                </div>
+        	</t>
+        </t>
+    </t>
+    <t t-extend="XmlReceipt">
+        <t t-jquery="t[t-if*='receipt.cashier']" t-operation="after">
+            <t t-if="order.invoice_number and widget.pos.config.receipt_invoice_number">
+                <div class="afip-invoice-info" >
+                    <div>------------------------------------------</div>
+                    <strong>Invoice number:</strong>
+                    <t t-esc="order.invoice_number"/><br />
+                    <t t-if="order.afip_auth_code and widget.pos.config.receipt_invoice_number">
+                    <strong>CAE number:</strong>
+                    <t t-esc="order.afip_auth_code"/><br />
+                    </t> 
+                </div>
+            </t>
+        </t>
+        <t t-jquery="t[t-if*='receipt.footer_xml']" t-operation="after">
+        	<t t-if="order.afip_qr_code and widget.pos.config.receipt_invoice_number">
+                <div class="afip-qr-info" >
+                    <div style="overflow: hidden; display: flex; justify-content: center;">
+                        <img t-attf-src="/report/barcode/?type={{'QR'}}&amp;value={{order.afip_qr_code}}&amp;width={{200}}&amp;height={{200}}" style="width:200;height:200   align-self: center;" />
+                    </div>
+                </div>
+        	</t>
+        </t>
+    </t>
+</templates>
