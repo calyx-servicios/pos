@@ -1,0 +1,50 @@
+<templates id="point_of_sale.template" xml:space="preserve">
+    <t t-extend="OrderReceipt">
+        <t t-jquery="t[t-if*='receipt.cashier']" t-operation="after">
+            <t t-if="order.customer_name">
+                <div class="customer-info">
+                    <div>------------------------------------------</div>
+                    <strong>Customer:</strong>
+                    <t t-esc="order.customer_name"/><br/>
+                    <t t-if="order.l10n_latam_identification_type">
+                        <strong>Identification Type:</strong>
+                        <t t-esc="order.l10n_latam_identification_type"/><br/>
+                    </t>
+                    <t t-if="order.vat">
+                        <strong>VAT:</strong>
+                        <t t-esc="order.vat"/><br/>
+                    </t>
+                    <t t-if="order.l10n_ar_afip_responsibility_type_id">
+                        <strong>Afip responsibility:</strong>
+                        <t t-esc="order.l10n_ar_afip_responsibility_type_id"/><br/>
+                    </t>
+                    <div>------------------------------------------</div>
+                </div>
+            </t>
+        </t>
+    </t>
+    <t t-extend="XmlReceipt">
+       <t t-jquery="t[t-if*='receipt.cashier']" t-operation="after">
+            <t t-if="order.customer_name">
+                <div class="customer-info">
+                    <div>------------------------------------------</div>
+                    <strong>Customer:</strong>
+                    <t t-esc="order.customer_name"/><br/>
+                    <t t-if="order.l10n_latam_identification_type">
+                        <strong>Identification Type:</strong>
+                        <t t-esc="order.l10n_latam_identification_type"/><br/>
+                    </t>
+                    <t t-if="order.vat">
+                        <strong>VAT:</strong>
+                        <t t-esc="order.vat"/><br/>
+                    </t>
+                    <t t-if="order.l10n_ar_afip_responsibility_type_id">
+                        <strong>Afip responsibility:</strong>
+                        <t t-esc="order.l10n_ar_afip_responsibility_type_id"/><br/>
+                    </t>
+                    <div>------------------------------------------</div>
+                </div>
+            </t>
+        </t>
+    </t>
+</templates>
