@@ -1,6 +1,6 @@
-==================
-Multi payment post
-==================
+=================
+POS customer info
+=================
 
 .. !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
    !! This module extends the POS receipt by adding  !!
