@@ -1,0 +1,31 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* pos_fields_partner
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 13.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-07-06 13:45+0000\n"
+"PO-Revision-Date: 2023-07-06 13:45+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: pos_fields_partner
+#. openerp-web
+#: code:addons/pos_fields_partner/static/src/xml/pos.xml:0
+#: code:addons/pos_fields_partner/static/src/xml/pos.xml:0
+#, python-format
+msgid "Date of Birth"
+msgstr "Fecha de nacimiento"
+
+#. module: pos_fields_partner
+#. openerp-web
+#: code:addons/pos_fields_partner/static/src/xml/pos.xml:0
+#, python-format
+msgid "N/A"
+msgstr "N/A"
