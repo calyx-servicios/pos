@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<templates id="template" inherit_id="point_of_sale.template">
+    <t t-extend="ClientDetails">
+        <t t-jquery='.client-details-right' t-operation='append'>
+            <div class='client-detail'>
+                <span class='label'>Date of Birth</span>
+                <t t-if='partner.mag_dob'>
+                    <span class='detail mag_dob'><t t-esc='partner.mag_dob'/></span>
+                </t>
+                <t t-if='!partner.mag_dob'>
+                    <span class='detail mag_dob empty'>N/A</span>
+                </t>
+            </div>
+        </t>
+    </t>
+    <t t-extend="ClientDetailsEdit">
+        <t t-jquery=".client-details-right" t-operation="append">
+            <div class='client-detail'>
+	            <span class='label'>Date of Birth</span>
+	            <input class="detail client-dob" name="mag_dob" type="date"
+                	t-on-change="captureChange"
+                    t-att-value="partner.mag_dob || ''" />
+	        </div>
+	    </t>
+    </t>
+</templates>
+
