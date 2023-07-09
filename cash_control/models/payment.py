@@ -57,7 +57,7 @@ class AccountPayment(models.Model):
         context = dict(self.env.context)
         context.pop('pos_session_id', False)
         for statement in self.cash_control_session_id.statement_ids:
-            if int(statement.id) == statement_id:
+            if int(statement.id) == statement_id.id:
                 journal_id = statement.journal_id.id
                 break
             elif statement.journal_id.id == journal_id:
@@ -67,7 +67,7 @@ class AccountPayment(models.Model):
             raise UserError(_('You have to open at least one cashbox.'))
 
         args.update({
-            'statement_id': statement_id,
+            'statement_id': statement_id.id,
             'payment_statement_id': self.id,
             'journal_id': journal_id,
             'ref': self.cash_control_session_id.name,
