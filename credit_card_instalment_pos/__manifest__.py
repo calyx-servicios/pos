@@ -8,7 +8,7 @@
     "maintainers": ["Filoquin", "PerezGabriela"],
     'website': "http://www.sipecu.com.ar",
     'category': 'Point of sale',
-    'version': '13.0.2.0.0',
+    'version': '13.0.2.1.0',
     'depends': [
         'credit_card_instalment', 
         'point_of_sale',
