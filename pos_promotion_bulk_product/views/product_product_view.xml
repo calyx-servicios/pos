@@ -1,0 +1,22 @@
+<odoo>
+	<record id="product_variants_view_form_promotion" model="ir.ui.view">
+	    <field name="name">product.variants.view.form.promotion</field>
+	    <field name="model">product.product</field>
+	    <field name="inherit_id" ref="product.product_normal_form_view"/>
+	    <field name="arch" type="xml">
+	        <xpath expr="//field[@name='categ_id']" position="after">
+	        	<field name="is_categ_bxgy"/>
+	            <field name="categ_bxgy_id" attrs="{'invisible':[('is_categ_bxgy','=',False)]}" readonly="1"/>
+	        </xpath>
+	    </field>
+	</record>
+	
+	<record model="ir.actions.server" id="action_bulk_categ_bxgy">
+	    <field name="name">Bulk Categ bXgY</field>
+	    <field name="model_id" ref="product.model_product_product"/>
+	    <field name="binding_model_id" ref="product.model_product_product"/>
+	    <field name="binding_view_types">list</field>
+	    <field name="state">code</field>
+	    <field name="code">action = records.set_bulk_categ_bxgy()</field>
+	</record>
+</odoo> 
