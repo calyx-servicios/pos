@@ -1,0 +1,36 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* pos_promotion_bulk_product
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 13.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-07-27 15:43+0000\n"
+"PO-Revision-Date: 2023-07-27 15:43+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: pos_promotion_bulk_product
+#: model:ir.actions.server,name:pos_promotion_bulk_product.action_bulk_categ_bxgy
+msgid "Bulk Categ bXgY"
+msgstr "Aplicar 2x1"
+
+#. module: pos_promotion_bulk_product
+#: model:ir.model.fields,field_description:pos_promotion_bulk_product.field_product_product__categ_bxgy_id
+msgid "Category bXgY"
+msgstr "Categoría 2x1"
+
+#. module: pos_promotion_bulk_product
+#: model:ir.model.fields,field_description:pos_promotion_bulk_product.field_product_product__is_categ_bxgy
+msgid "Is Category bXgY"
+msgstr "Incluye 2x1"
+
+#. module: pos_promotion_bulk_product
+#: model:ir.model,name:pos_promotion_bulk_product.model_product_product
+msgid "Product Variant (Multi-Company)"
+msgstr "Product Variant (Multi-Company)"
