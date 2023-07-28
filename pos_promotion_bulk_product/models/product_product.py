@@ -13,5 +13,9 @@ class ProductProduct(models.Model):
         if len(active_ids) != 0:
             products = self.env["product.product"].browse(active_ids)
             categ_bxgy = self.env.ref("pos_promotion_bulk_product.categ_bulk_product_bxgy")
-            products.write({"is_categ_bxgy": True, "categ_bxgy_id": categ_bxgy.id})
+            for product in products:
+                if product.is_categ_bxgy:
+                    product.write({"is_categ_bxgy": False, "categ_bxgy_id": False})
+                else:
+                    product.write({"is_categ_bxgy": True, "categ_bxgy_id": categ_bxgy.id})
             
