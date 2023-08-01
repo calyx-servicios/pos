@@ -23,6 +23,8 @@
                     <header>
                         <button name="action_transfer" states="draft" string="Transfer" type="object"/>
                         <button name="action_receipt" states="transfer" string="Receipt" type="object"/>
+                        <button name="button_cancel" type="object" string="Cancel" groups="cash_control.superadmin" states="transfer,receipt"/>
+                        <button name="button_draft" type="object" string="Draft" groups="cash_control.superadmin" states="cancel"/>
                         <field name="state" widget="statusbar" />
                     </header>
                     <sheet>
