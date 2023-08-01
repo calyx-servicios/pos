@@ -68,6 +68,7 @@ class CashControlSession(models.Model):
                 [
                     ("statement_id", "=", session.statement_id.id),
                     ("transaction_type", "in", ["TRANSFER_OUT", "TRANSFER_IN"]),
+                    ("state","not in", ["draft","cancel"])
                 ]
             )
 
