@@ -15,11 +15,12 @@ class AccountJournal(models.Model):
     @api.model
     def _search(self, args, offset=0, limit=None, order=None, count=False, access_rights_uid=None):
         user = self.env.user
-        if 'filter_journals' not in self.env.context.keys():
+        cc_superadmin = self.user_has_groups('cash_control.superadmin')
+        if not self.env.context.get('filter_journals') or cc_superadmin:
             return super()._search(args, offset, limit, order, count=count, access_rights_uid=access_rights_uid)
         # if superadmin, do not apply
-        administacion = self.user_has_groups('cash_control.administacion')
-        if not self.env.is_superuser() or not administacion:
+        administracion = self.user_has_groups('cash_control.administrator')
+        if not self.env.is_superuser() or not administracion:
             session_ids = self.env['cash.control.session'].search(
                 [('user_ids', 'in', self.env.user.id), ('state', '=', 'opened')])
             if session_ids:

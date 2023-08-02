@@ -27,9 +27,9 @@
             <field name="arch" type="xml">
                 <form string="Cash Control Config">
                     <header>
-                        <!-- <button attrs="{'invisible': [('current_session_id', '!=', False)]}" class="oe_highlight" context="{'balance': 'start'}" groups="cash_control.caja" name="open_cashbox_pos" string="Start Session" type="object"/>
-                        <button attrs="{'invisible': [('session_state', '!=', 'opened')]}" class="oe_highlight" groups="cash_control.caja" name="close_session" string="Close Session" type="object"/>
-                        <button attrs="{'invisible': [('session_state', '!=', 'opened')]}" class="oe_highlight" context="{'balance': 'close'}" groups="cash_control.caja" name="open_cashbox_pos" string="Set Closing Cash" type="object"/> -->
+                        <!-- <button attrs="{'invisible': [('current_session_id', '!=', False)]}" class="oe_highlight" context="{'balance': 'start'}" groups="cash_control.cashier" name="open_cashbox_pos" string="Start Session" type="object"/>
+                        <button attrs="{'invisible': [('session_state', '!=', 'opened')]}" class="oe_highlight" groups="cash_control.cashier" name="close_session" string="Close Session" type="object"/>
+                        <button attrs="{'invisible': [('session_state', '!=', 'opened')]}" class="oe_highlight" context="{'balance': 'close'}" groups="cash_control.cashier" name="open_cashbox_pos" string="Set Closing Cash" type="object"/> -->
                         <button attrs="{'invisible': [('current_session_id', '!=', False)]}" class="oe_highlight" context="{'balance': 'start'}"  name="open_cashbox_pos" string="Start Session" type="object"/>
                         <button attrs="{'invisible': [('session_state', '!=', 'opened')]}" class="oe_highlight"  name="close_session" string="Close Session" type="object"/>
                         <button attrs="{'invisible': [('session_state', '!=', 'opened')]}" class="oe_highlight" context="{'balance': 'close'}"  name="open_cashbox_pos" string="Set Closing Cash" type="object"/>
@@ -64,8 +64,8 @@
                                 <field name="user_ids" required="True" widget="many2many_tags"/>
                                 <!-- domain="[('store_ids','=',store_id),]"  -->
                                 <field attrs="{'readonly': [('current_session_id', '!=', False)]}" name="amount_authorized_diff"/>
-                                <field name="session_sequence_id" readonly="True"/>
-                                <!-- groups="cash_control.administacion"  -->
+                                <field name="session_sequence_id" groups="cash_control.superadmin"/>
+                                <!-- groups="cash_control.administrator"  -->
                             </group>
                             <group>
                                 <field attrs="{'readonly': [('current_session_id', '!=', False)]}" name="company_id"/>

@@ -13,7 +13,7 @@
             name="Cash Control Config"
             parent="cash_control_main_menu"
             sequence="10"/>
-            <!-- groups="caja,administacion" -->
+            <!-- groups="caja,administracion" -->
 
         <menuitem
             action="action_cash_control_config"
@@ -21,7 +21,7 @@
             name="Cash Control Config"
             parent="cash_control_config_menu_root"
             sequence="10"/>
-            <!-- groups="caja,administacion" -->
+            <!-- groups="caja,administracion" -->
 
         <menuitem
             action="action_cash_control_session"
@@ -36,7 +36,7 @@
             name="Transfer Cash"
             parent="cash_control_config_menu_root"
             sequence="30"/>
-            <!-- groups="caja,administacion" -->
+            <!-- groups="caja,administracion" -->
 
         <menuitem
             action="account_payment_group.action_account_payments_transfer"
@@ -45,13 +45,13 @@
             name="Transferir Banco"
             sequence="40"
             />
-            <!-- groups="caja,administacion" -->
+            <!-- groups="caja,administracion" -->
 
         <menuitem id="cash_control_sale_order_menu"
             name="Orders"
             parent="cash_control_main_menu"
             sequence="20"/>
-            <!-- groups="caja,administacion,salesman" -->
+            <!-- groups="caja,administracion,salesman" -->
 
         <menuitem id="menu_sale_quotations"
             action="sale.action_quotations_with_onboarding"
@@ -68,7 +68,7 @@
             id="cash_control_report_menu"
             name="Reporting"
             parent="cash_control_main_menu"
-            groups="caja,administacion"
+            groups="caja,administracion"
             sequence="30"/>
 
         <menuitem
@@ -83,7 +83,7 @@
             name="Configuration"
             parent="cash_control_main_menu"
             sequence="40"/>
-            <!-- groups="administacion" -->
+            <!-- groups="administracion" -->
 
         <!-- <menuitem
             action="base_multi_store.action_store"

@@ -6,14 +6,25 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 13.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-07-15 16:57+0000\n"
-"PO-Revision-Date: 2022-07-15 16:57+0000\n"
+"POT-Creation-Date: 2023-08-01 01:20+0000\n"
+"PO-Revision-Date: 2023-08-01 01:20+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: \n"
+
+#. module: cash_control
+#: code:addons/cash_control/models/cash_control_config.py:0
+#: code:addons/cash_control/models/cash_control_config.py:0
+#: code:addons/foca/submodules/calyx-servicios/pos/cash_control/models/cash_control_config.py:0
+#: code:addons/foca/submodules/calyx-servicios/pos/cash_control/models/cash_control_config.py:0
+#: code:addons/submodules/calyx-servicios/pos/cash_control/models/cash_control_config.py:0
+#: code:addons/submodules/calyx-servicios/pos/cash_control/models/cash_control_config.py:0
+#, python-format
+msgid "%s (copy)"
+msgstr "%s (copia)"
 
 #. module: cash_control
 #: model:ir.actions.report,print_report_name:cash_control.pos_invoice_report
@@ -164,9 +175,9 @@ msgid "Add credit note in payment."
 msgstr ""
 
 #. module: cash_control
-#: model:res.groups,name:cash_control.administacion
-msgid "Administrator"
-msgstr ""
+#: model:res.groups,name:cash_control.administrator
+msgid "Admin"
+msgstr "Administrador"
 
 #. module: cash_control
 #: model:ir.model.fields,field_description:cash_control.field_res_company__allow_closed_session_payments
@@ -225,6 +236,8 @@ msgstr "Monto Base"
 
 #. module: cash_control
 #: model:ir.model.fields.selection,name:cash_control.selection__cash_control_config__state__cancel
+#: model:ir.model.fields.selection,name:cash_control.selection__cash_control_transfer_cash__state__cancel
+#: model_terms:ir.ui.view,arch_db:cash_control.cash_control_transfer_cash_form
 #: model_terms:ir.ui.view,arch_db:cash_control.view_cash_control_transfer_wizard
 #: model_terms:ir.ui.view,arch_db:cash_control.view_pos_details_wizard
 msgid "Cancel"
@@ -295,6 +308,11 @@ msgstr "Entrada/Salida de Efectivo"
 #: model:ir.actions.report,name:cash_control.cash_control_report
 msgid "CashBox Report"
 msgstr "Reporte de Caja"
+
+#. module: cash_control
+#: model:res.groups,name:cash_control.cashier
+msgid "Cashier"
+msgstr "Cajero"
 
 #. module: cash_control
 #: model_terms:ir.ui.view,arch_db:cash_control.cash_control_config_form
@@ -387,6 +405,10 @@ msgstr "Apertura por Defecto"
 
 #. module: cash_control
 #: model:ir.model.fields,field_description:cash_control.field_cash_control_transfer_cash__dest_cash_control_id
+msgid "Dest Cashbox"
+msgstr "Caja de Destino"
+
+#. module: cash_control
 #: model:ir.model.fields,field_description:cash_control.field_cash_control_transfer_cash__dest_journal_id
 #: model:ir.model.fields,field_description:cash_control.field_cash_control_transfer_wizard__dest_cash_control_id
 msgid "Dest journal"
@@ -437,6 +459,7 @@ msgstr "Nombre"
 #: model:ir.model.fields.selection,name:cash_control.selection__cash_control_config__session_state_info__draft
 #: model:ir.model.fields.selection,name:cash_control.selection__cash_control_config__state__draft
 #: model:ir.model.fields.selection,name:cash_control.selection__cash_control_session__state__draft
+#: model_terms:ir.ui.view,arch_db:cash_control.cash_control_transfer_cash_form
 msgid "Draft"
 msgstr "Borrador"
 
@@ -603,11 +626,6 @@ msgid "Main Attachment"
 msgstr ""
 
 #. module: cash_control
-#: model:res.groups,name:cash_control.caja
-msgid "Manager"
-msgstr ""
-
-#. module: cash_control
 #: model_terms:ir.ui.view,arch_db:cash_control.report_cash_detail_control
 msgid "Medio de Pago"
 msgstr ""
@@ -627,6 +645,22 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:cash_control.report_saledetails
 msgid "Name"
 msgstr "Nombre"
+
+#. module: cash_control
+#: code:addons/cash_control/models/report_sale_details.py:0
+#: code:addons/foca/submodules/calyx-servicios/pos/cash_control/models/report_sale_details.py:0
+#: code:addons/submodules/calyx-servicios/pos/cash_control/models/report_sale_details.py:0
+#, python-format
+msgid "No Taxes"
+msgstr "Sin Impuestos"
+
+#. module: cash_control
+#: code:addons/cash_control/models/sale.py:0
+#: code:addons/foca/submodules/calyx-servicios/pos/cash_control/models/sale.py:0
+#: code:addons/submodules/calyx-servicios/pos/cash_control/models/sale.py:0
+#, python-format
+msgid "No hay diario de ventas activo"
+msgstr ""
 
 #. module: cash_control
 #: model_terms:ir.ui.view,arch_db:cash_control.cash_control_config_form
@@ -675,7 +709,7 @@ msgstr ""
 #: model:ir.ui.menu,name:cash_control.menu_sale_order
 #: model_terms:ir.ui.view,arch_db:cash_control.cash_control_session_form
 msgid "Orders"
-msgstr "Pedidos"
+msgstr "Ventas"
 
 #. module: cash_control
 #: model:ir.model.fields,field_description:cash_control.field_cash_control_transfer_cash__orig_journal_id
@@ -692,6 +726,14 @@ msgstr "Linea de Extracto Origen"
 #: model:ir.model.fields,field_description:cash_control.field_sale_order_add_credit_note__partner_id
 msgid "Partner"
 msgstr ""
+
+#. module: cash_control
+#: code:addons/cash_control/wizards/cash_control_transfer_wizard.py:0
+#: code:addons/foca/submodules/calyx-servicios/pos/cash_control/wizards/cash_control_transfer_wizard.py:0
+#: code:addons/submodules/calyx-servicios/pos/cash_control/wizards/cash_control_transfer_wizard.py:0
+#, python-format
+msgid "Pay now journal must have manual method!"
+msgstr "El diario de pago directo debe tener método manual!"
 
 #. module: cash_control
 #: model:ir.model.fields,field_description:cash_control.field_cash_control_config__payment_journal_ids
@@ -900,6 +942,14 @@ msgid "Statements"
 msgstr "Extractos"
 
 #. module: cash_control
+#: code:addons/cash_control/models/cash_control_session.py:0
+#: code:addons/foca/submodules/calyx-servicios/pos/cash_control/models/cash_control_session.py:0
+#: code:addons/submodules/calyx-servicios/pos/cash_control/models/cash_control_session.py:0
+#, python-format
+msgid "Su Caja no tiene ningun diario de efectivo asignado"
+msgstr ""
+
+#. module: cash_control
 #: model:ir.model.fields,help:cash_control.field_cash_control_config__statement_balance_end
 #: model:ir.model.fields,help:cash_control.field_cash_control_session__statement_balance_end
 msgid "Sum of opening balance and transactions."
@@ -910,6 +960,11 @@ msgstr "Suma del saldo inicial y transacciones"
 #: model_terms:ir.ui.view,arch_db:cash_control.cash_control_session_form
 msgid "Summary by Payment Methods"
 msgstr "Resumen de Métodos de Pagos"
+
+#. module: cash_control
+#: model:res.groups,name:cash_control.superadmin
+msgid "SuperAdmin"
+msgstr "Super Administrador"
 
 #. module: cash_control
 #: model:ir.actions.act_window,name:cash_control.action_pos_box_out
@@ -927,10 +982,84 @@ msgid "Taxes"
 msgstr "Impuesto"
 
 #. module: cash_control
+#: code:addons/cash_control/models/cash_control_session.py:0
+#: code:addons/foca/submodules/calyx-servicios/pos/cash_control/models/cash_control_session.py:0
+#: code:addons/submodules/calyx-servicios/pos/cash_control/models/cash_control_session.py:0
+#, python-format
+msgid "The journal type for your payment method should be bank or cash."
+msgstr "El tipo de diario para su pago debe ser Banco o Efectivo"
+
+#. module: cash_control
+#: code:addons/cash_control/models/payment.py:0
+#: code:addons/foca/submodules/calyx-servicios/pos/cash_control/models/payment.py:0
+#: code:addons/submodules/calyx-servicios/pos/cash_control/models/payment.py:0
+#, python-format
+msgid "The payment session was closed. Please create another payment"
+msgstr "La sesión del pago ya esta cerrada. Por favor cree otro pago"
+
+#. module: cash_control
+#: code:addons/cash_control/models/cash_control_session.py:0
+#: code:addons/foca/submodules/calyx-servicios/pos/cash_control/models/cash_control_session.py:0
+#: code:addons/submodules/calyx-servicios/pos/cash_control/models/cash_control_session.py:0
+#, python-format
+msgid "The user %s already has an opened session"
+msgstr "El usuario %s ya tiene una sesión abierta"
+
+#. module: cash_control
 #: model:ir.model.fields,field_description:cash_control.field_cash_control_config__statement_balance_end
 #: model:ir.model.fields,field_description:cash_control.field_cash_control_session__statement_balance_end
 msgid "Theoretical Closing Balance"
 msgstr "Saldo de cierre teórico"
+
+#. module: cash_control
+#: code:addons/cash_control/wizards/pos_box.py:0
+#: code:addons/cash_control/wizards/pos_box.py:0
+#: code:addons/foca/submodules/calyx-servicios/pos/cash_control/wizards/pos_box.py:0
+#: code:addons/foca/submodules/calyx-servicios/pos/cash_control/wizards/pos_box.py:0
+#: code:addons/submodules/calyx-servicios/pos/cash_control/wizards/pos_box.py:0
+#: code:addons/submodules/calyx-servicios/pos/cash_control/wizards/pos_box.py:0
+#, python-format
+msgid "There is no cash register for this PoS Session"
+msgstr "No hay un registro de Sesión de PoS"
+
+#. module: cash_control
+#: code:addons/cash_control/models/payment.py:0
+#: code:addons/foca/submodules/calyx-servicios/pos/cash_control/models/payment.py:0
+#: code:addons/submodules/calyx-servicios/pos/cash_control/models/payment.py:0
+#, python-format
+msgid ""
+"There is no receivable account defined to make payment for the partner: "
+"\"%s\" (id:%d)."
+msgstr ""
+"No hay una cuenta definida para realizar el pago para el cliente: "
+"\"%s\" (id:%d)."
+
+#. module: cash_control
+#: code:addons/cash_control/models/payment.py:0
+#: code:addons/foca/submodules/calyx-servicios/pos/cash_control/models/payment.py:0
+#: code:addons/submodules/calyx-servicios/pos/cash_control/models/payment.py:0
+#, python-format
+msgid "There is no receivable account defined to make payment."
+msgstr "No hay una cuenta definida para realizar el pago"
+
+#. module: cash_control
+#: code:addons/cash_control/models/payment.py:0
+#: code:addons/foca/submodules/calyx-servicios/pos/cash_control/models/payment.py:0
+#: code:addons/submodules/calyx-servicios/pos/cash_control/models/payment.py:0
+#, python-format
+msgid ""
+"There is not open cash session for de the current user. Please open a cash "
+"session"
+msgstr ""
+"No hay una sesión abierta para el usuario actual. Por favor abra una sesión"
+
+#. module: cash_control
+#: code:addons/cash_control/models/payment.py:0
+#: code:addons/foca/submodules/calyx-servicios/pos/cash_control/models/payment.py:0
+#: code:addons/submodules/calyx-servicios/pos/cash_control/models/payment.py:0
+#, python-format
+msgid "There is not session statement for journal %s."
+msgstr "No hay un extracto bancario en la sesión para el diario %s"
 
 #. module: cash_control
 #: model:ir.model.fields,help:cash_control.field_cash_control_config__amount_authorized_diff
@@ -1050,6 +1179,33 @@ msgstr ""
 #. module: cash_control
 #: model:ir.model.fields,help:cash_control.field_cash_control_session__website_message_ids
 msgid "Website communication history"
+msgstr ""
+
+#. module: cash_control
+#: code:addons/cash_control/models/cash_control_config.py:0
+#: code:addons/foca/submodules/calyx-servicios/pos/cash_control/models/cash_control_config.py:0
+#: code:addons/submodules/calyx-servicios/pos/cash_control/models/cash_control_config.py:0
+#, python-format
+msgid "You are not the responsible of the cash control %s (%s)"
+msgstr "Usted no es el responsable de la Caja %s (%s)"
+
+#. module: cash_control
+#: code:addons/cash_control/models/payment.py:0
+#: code:addons/foca/submodules/calyx-servicios/pos/cash_control/models/payment.py:0
+#: code:addons/submodules/calyx-servicios/pos/cash_control/models/payment.py:0
+#, python-format
+msgid "You have to open at least one cashbox."
+msgstr ""
+
+#. module: cash_control
+#: code:addons/cash_control/models/cash_control_session.py:0
+#: code:addons/foca/submodules/calyx-servicios/pos/cash_control/models/cash_control_session.py:0
+#: code:addons/submodules/calyx-servicios/pos/cash_control/models/cash_control_session.py:0
+#, python-format
+msgid ""
+"Your ending balance is too different from the theoretical cash closing "
+"(%.2f), the maximum allowed is: %.2f. You can contact your manager to force "
+"it."
 msgstr ""
 
 #. module: cash_control
