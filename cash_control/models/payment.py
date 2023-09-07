@@ -144,6 +144,7 @@ class AccountPayment(models.Model):
                         "journal": rec.journal_id.id,
                         "statement_id": bs,
                     }
+                    continue
                     rec.add_payment(data)
             else:
                 if not rec.company_id.allow_sessionless_payments:
