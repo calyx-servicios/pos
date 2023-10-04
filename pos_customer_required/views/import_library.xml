@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <template id="assets_required_customer_alert" name="pos_customer_required_assets" inherit_id="point_of_sale.assets">
+        <xpath expr="." position="inside">
+            <script
+                type="text/javascript"
+                src="/pos_customer_required/static/src/js/customer_required_assets.js"
+            />
+            <script
+                type="text/javascript"
+                src="/pos_customer_required/static/src/js/interface_customer_required_assets.js"
+            />
+            <script
+            type="text/javascript"
+            src="/pos_customer_required/static/src/js/credit_card_validate.js"
+        />
+        </xpath>
+    </template>
+</odoo>
