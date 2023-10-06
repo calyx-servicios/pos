@@ -7,9 +7,13 @@ odoo.define('pos_credit_card_automatic.credit_card_automatic', function (require
 	    render_payment_terminal: function() {
 	    	let self = this;
 	    	let order = this.pos.get_order();
-	    	if (!order) {
-	            return;
-	        }
+			if (!order || !order.get_client()) {
+				this.pos.gui.show_popup('error', {
+					'title': _t('Error'),
+					'body': _t('Selecciona un cliente antes de continuar.'),
+				});
+				return;
+			}
 	    	
 	    	let paymentline = order.selected_paymentline;
 	    	
