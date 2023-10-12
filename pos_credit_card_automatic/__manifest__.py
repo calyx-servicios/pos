@@ -8,7 +8,7 @@
     "maintainers": ["PerezGabriela"],
     "website": "http://odoo.calyx-cloud.com.ar/",
     "category": "Point of sale",
-    "version": "13.0.1.1.0",
+    "version": "13.0.1.2.1",
     "installable": True,
     "application": False,
     "depends": [
