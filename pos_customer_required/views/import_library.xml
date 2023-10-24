@@ -11,6 +11,10 @@
                 src="/pos_customer_required/static/src/js/interface_customer_required_assets.js"
             />
             <script
+                type="text/javascript"
+                src="/pos_customer_required/static/src/js/customer_required_main.js"
+            />
+            <script
             type="text/javascript"
             src="/pos_customer_required/static/src/js/credit_card_validate.js"
         />

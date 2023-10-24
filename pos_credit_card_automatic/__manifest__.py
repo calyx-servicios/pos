@@ -5,15 +5,13 @@
         This module adds card functionality automatic to the point of sale.
     """,
     "author": "Calyx Servicios S.A.",
-    "maintainers": ["PerezGabriela"],
+    "maintainers": ["PerezGabriela", "mbrecalyx"],
     "website": "http://odoo.calyx-cloud.com.ar/",
     "category": "Point of sale",
-    "version": "13.0.1.2.1",
+    "version": "13.0.2.1.0",
     "installable": True,
     "application": False,
-    "depends": [
-        "credit_card_instalment_pos"
-    ],
+    "depends": ["credit_card_instalment_pos"],
     "data": [
         "views/point_of_sale.xml",
     ],
