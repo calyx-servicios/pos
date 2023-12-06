@@ -5,11 +5,11 @@
         Add DEBO specific fields and interactions.
     """,
     "author": "Calyx Servicios S.A.",
-    "maintainers": ["marcooegg"],
+    "maintainers": ["marcooegg", "leandro090685"],
     "website": "https://odoo.calyx-cloud.com.ar/",
     "license": "AGPL-3",
     "category": "Endpoint",
-    "version": "13.0.1.0.1",
+    "version": "13.0.1.0.2",
     "development_status": "Production/Stable",
     "application": False,
     "installable": True,

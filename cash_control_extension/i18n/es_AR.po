@@ -120,7 +120,7 @@ msgstr "Sesión"
 #: model_terms:ir.ui.view,arch_db:cash_control_extension.search_quotation_session_date
 #: model_terms:ir.ui.view,arch_db:cash_control_extension.search_session_date
 msgid "Session Date End"
-msgstr "Fecha Inicio de Sesión"
+msgstr "Fecha CIERRE de Sesión"
 
 #. module: cash_control_extension
 #: model:ir.model.fields,field_description:cash_control_extension.field_sale_order__session_date_start
@@ -128,7 +128,7 @@ msgstr "Fecha Inicio de Sesión"
 #: model_terms:ir.ui.view,arch_db:cash_control_extension.search_quotation_session_date
 #: model_terms:ir.ui.view,arch_db:cash_control_extension.search_session_date
 msgid "Session Date Start"
-msgstr "Fecha Cierra de Sesión"
+msgstr "Fecha INICIO de Sesión"
 
 #. module: cash_control_extension
 #: model_terms:ir.ui.view,arch_db:cash_control_extension.cash_control_session_add_transfer_tree
