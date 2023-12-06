@@ -4,10 +4,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 13.0\n"
+"Project-Id-Version: Odoo Server 13.0-20221005\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-11-18 11:12+0000\n"
-"PO-Revision-Date: 2022-11-18 11:12+0000\n"
+"POT-Creation-Date: 2023-12-06 19:41+0000\n"
+"PO-Revision-Date: 2023-12-06 19:41+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -38,7 +38,7 @@ msgstr "Control de Turnos"
 #. module: cash_control_extension
 #: model:ir.model,name:cash_control_extension.model_cash_control_session
 msgid "Cash Control Session"
-msgstr "Sesión"
+msgstr "Turno"
 
 #. module: cash_control_extension
 #: model:ir.model.fields,field_description:cash_control_extension.field_cash_control_session__company_id
@@ -60,7 +60,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:cash_control_extension.field_cash_control_session__invoice_ids
 #: model_terms:ir.ui.view,arch_db:cash_control_extension.cash_control_session_add_transfer_tree
 msgid "Invoices"
-msgstr "Comprobantes"
+msgstr "Facturas"
 
 #. module: cash_control_extension
 #: model_terms:ir.ui.view,arch_db:cash_control_extension.cash_control_session_add_transfer_tree
@@ -81,7 +81,7 @@ msgstr "Ubicación"
 #: model:ir.model.fields,field_description:cash_control_extension.field_cash_control_session__purchase_invoice_ids
 #: model_terms:ir.ui.view,arch_db:cash_control_extension.cash_control_session_add_transfer_tree
 msgid "Purchase Invoices"
-msgstr "Gastos"
+msgstr "Compras"
 
 #. module: cash_control_extension
 #: model:ir.model.fields,field_description:cash_control_extension.field_cash_control_session__user_id
@@ -133,7 +133,7 @@ msgstr "Fecha INICIO de Sesión"
 #. module: cash_control_extension
 #: model_terms:ir.ui.view,arch_db:cash_control_extension.cash_control_session_add_transfer_tree
 msgid "Total"
-msgstr ""
+msgstr "Total"
 
 #. module: cash_control_extension
 #: model_terms:ir.ui.view,arch_db:cash_control_extension.cash_control_session_add_transfer_tree
